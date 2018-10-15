@@ -1,0 +1,137 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "../../datadefs.h"
+
+#include <queue>
+using namespace std;
+
+#include <openacc.h>
+#include <omp.h>
+
+
+class TransferUnit {
+public:
+	char *q;
+	size_t q_len;
+	size_t total_size;
+	char *next_ptr;
+
+	queue<void*> q_addr;
+
+	TransferUnit() {
+		q = NULL;
+		q_len = 0;
+		total_size = 0;
+		next_ptr = NULL;		
+	}
+
+	void init(size_t sz) {
+		q = (char*) malloc(sz);
+		next_ptr = q;
+		q_len = 0;
+		total_size = sz;
+	}
+
+
+	char *get_next_ptr(size_t sz) {
+		next_ptr += sz;
+		q_len += sz;
+		q_addr.push(next_ptr-sz);
+		return next_ptr - sz;
+	}
+
+	void *get_next_ptr_deserialize(queue<void*> &q_addr_input) {
+		void *s = q_addr_input.front();
+		q_addr_input.pop();
+		return s;
+	}
+
+	void copyToGPU() {
+		#pragma acc enter data copyin(q[0:total_size])
+	}
+
+	void copyFromGPU() {
+		#pragma acc exit data copyout(q[0:total_size])		
+	}
+
+	void freeMem() {
+		free(q);
+		q = NULL;
+	}
+
+};
+
+void show_time(double time, char *topic) {
+	if(time >= 0.01) {
+		printf("%%s - Time: %%.2fs\n", topic, time);
+	} else {
+		time *= 1.0E6;
+		printf("%%s - Time: %%.2fus\n", topic, time);
+	}
+}
+
+
+
+// class definitions
+%s
+
+// main function
+int main(int argc, char const *argv[]) {
+
+	datatype scale = 31;
+	if(argc < 2) {
+		printf("Usage: %%s <N>\n", argv[0]);
+		exit(0);
+	}
+	int N = atoi(argv[1]);
+	double time, total_time;
+
+	total_time = omp_get_wtime();
+
+
+	time = omp_get_wtime();
+	// allocating classes
+	%s
+	time = omp_get_wtime() - time;
+	show_time(time, "Allocation");
+
+
+	time = omp_get_wtime();
+	// initializing the variables
+	%s
+	time = omp_get_wtime() - time;
+	show_time(time, "Initialization");
+
+
+	time = omp_get_wtime();
+	// transfer data to gpu
+	%s
+	time = omp_get_wtime() - time;
+	show_time(time, "Transfer to GPU");
+
+
+	time = omp_get_wtime();
+	// compute section
+	%s
+	time = omp_get_wtime() - time;
+	show_time(time, "Compute");
+
+
+	time = omp_get_wtime();
+	// transfer data from gpu
+	%s
+	time = omp_get_wtime() - time;
+	show_time(time, "Transfer from GPU");
+
+
+	time = omp_get_wtime();
+	// check results
+	%s
+	time = omp_get_wtime() - time;
+	show_time(time, "Check results");
+
+	total_time = omp_get_wtime() - total_time;
+	show_time(total_time, "Total time");
+
+	return 0;
+}
