@@ -27,3 +27,8 @@ bin/*
 
 log-compile.log
 
+output/*
+output*/
+output*/*
+
+
