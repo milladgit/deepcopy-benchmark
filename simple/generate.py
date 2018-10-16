@@ -73,7 +73,7 @@ def create_chain_of_pointers_with_serialize(count, init_all_arrays=False):
 
 	i = 0
 	ret += "L%d *a%d = (L%d*) tu.get_next_ptr(sizeof(L%d));\n" % (i, i, i, i)
-	if init_all_arrays:
+	if init_all_arrays or i == count-2:
 		ret += "a%d->A = (datatype*) tu.get_next_ptr(sizeof(datatype)*N);\n" % (i)
 
 	i += 1
@@ -84,6 +84,8 @@ def create_chain_of_pointers_with_serialize(count, init_all_arrays=False):
 		if i < count-1:
 			if init_all_arrays or i == count-2:
 				ret += "\ta%d->A = (datatype*) tu.get_next_ptr(sizeof(datatype)*N);\n" % (i)
+		# elif count == 2 and i == 1:
+		# 	ret += "\ta%d->A = (datatype*) tu.get_next_ptr(sizeof(datatype)*N);\n" % (i-1)
 		i += 1
 
 	# if not init_all_arrays:
