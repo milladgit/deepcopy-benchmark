@@ -29,9 +29,9 @@ def main():
 	compile_cmd = "pgc++ -w -O3 -mp -acc -ta=tesla%s %s -o %s &>> log-compile.log"
 
 	for f in filelist:
-		managed = ":cc70"
+		managed = ":cc70,cc60"
 		if "uvm" in f:
-			managed = ":cc70,managed"
+			managed = ":cc70,cc60,managed"
 
 		last_index_slash = f.rfind('/')
 		if last_index_slash == -1:

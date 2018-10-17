@@ -21,9 +21,9 @@ for i in range(2,11):
 #for i in [10]:
 	ten = 10
 	for j in range(8):
-		#cmd = template % (i, ten, d[ten])
-		#print cmd
-		#os.system(cmd)
+		cmd = template % (i, ten, d[ten])
+		print cmd
+		os.system(cmd)
 		count += 1
 		ten *= 10
 
