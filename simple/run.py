@@ -19,6 +19,7 @@ filename_pattern = "exe_benchmark-c%d-%s-%s"	# exe_benchmark-c10-allinit-allused
 
 bin_folder="./bin"
 output_folder_pattern="./output-n%d"
+output_folder = "./output"
 
 
 
@@ -34,8 +35,8 @@ def main():
 	n = int(sys.argv[2])
 	iter_count = int(sys.argv[3])
 
-	output_folder = output_folder_pattern % (n)
-	os.system("rm -rf %s" % (output_folder))
+	# output_folder = output_folder_pattern % (n)
+	# os.system("rm -rf %s" % (output_folder))
 	os.system("mkdir -p %s" % (output_folder))
 
 	for how_to_initialize in ["allinit-allused", "allinit-LLused", "LLinit-LLused"]:
@@ -45,7 +46,7 @@ def main():
 
 			filename = bin_folder + "/" + filename_raw
 
-			output_filename = output_folder + "/" + (filename_raw[4:])
+			output_filename = output_folder + "/" + "k%d-n%d-%s-%s" % (k, n, how_to_initialize, method)
 
 			os.system("rm -f %s" % (output_filename))
 
