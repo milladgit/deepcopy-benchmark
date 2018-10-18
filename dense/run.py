@@ -1,31 +1,17 @@
 
 import os,sys
 
-# iteration_datasize_dict = dict()
-
-# iteration_datasize_dict[1] = 100
-# iteration_datasize_dict[10] = 100
-# iteration_datasize_dict[100] = 100
-# iteration_datasize_dict[1000] = 100
-# iteration_datasize_dict[10000] = 50
-# iteration_datasize_dict[100000] = 50
-# iteration_datasize_dict[1000000] = 50
-# iteration_datasize_dict[10000000] = 30
-# iteration_datasize_dict[100000000] = 30
-# iteration_datasize_dict[1000000000] = 30
-
-
-filename_pattern = "exe_benchmark-c%d-%s-%s"	# exe_benchmark-c10-allinit-allused-pc
 
 bin_folder="./bin"
-output_folder_pattern="./output-n%d"
 output_folder = "./output"
 
+app_list = ["dense_uvm", "dense_deepcopy", "dense_uvm_selective", "dense_deepcopy_selective", "dense_pointerchain_selective"]
 
 
 def usage():
-	print "Usage: %s <K> <N> <iter_count>"
+	print "Usage: %s <K> <N> <iter_count>" % (sys.argv[0])
 	exit(1)
+
 
 def main():
 	if len(sys.argv) < 4:
@@ -39,22 +25,13 @@ def main():
 	# os.system("rm -rf %s" % (output_folder))
 	os.system("mkdir -p %s" % (output_folder))
 
-	for how_to_initialize in ["allinit-allused", "allinit-LLused", "LLinit-LLused"]:
-		for method in ["pc", "seriz", "uvm"]:
 
-			filename_raw = filename_pattern % (k, how_to_initialize, method)
-
-			filename = bin_folder + "/" + filename_raw
-
-			output_filename = output_folder + "/" + "k%d-n%d-%s-%s" % (k, n, how_to_initialize, method)
-
-			os.system("rm -f %s" % (output_filename))
-
-			for i in range(iter_count):
-				os.system("%s %d >> %s" % (filename, n, output_filename))
-
-
-
+	for app in app_list:
+		filename = bin_folder + "/" + app
+		output_filename = output_folder + "/" + "%s-k%d-n%d" % (app, k, n)
+		os.system("rm -f %s" % (output_filename))
+		for i in range(iter_count):
+			os.system("%s %d %d >> %s" % (filename, n, k, output_filename))
 
 
 if __name__ == '__main__':

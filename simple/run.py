@@ -24,7 +24,7 @@ output_folder = "./output"
 
 
 def usage():
-	print "Usage: %s <K> <N> <iter_count>"
+	print "Usage: %s <K> <N> <iter_count>" % (sys.argv[0])
 	exit(1)
 
 def main():

@@ -17,15 +17,31 @@ d[100000000] = 10
 
 count = 0
 
-for i in range(2,11):
-#for i in [10]:
-	ten = 10
-	for j in range(8):
-		#cmd = template % (i, ten, d[ten])
-		#print cmd
-		#os.system(cmd)
-		count += 1
-		ten *= 10
+iter_count = 20
+
+
+k = 4
+while k <= 128:
+	ten = 10000
+	while ten <= 10000000:
+		n = ten
+		x = 24 + 8*n
+		y = 12 + 8*n
+
+		B = x + k*(x+k*(x+k*(y)))
+
+		GB = B/1024.0/1024.0/1024.0
+
+		if GB <= 15.00:
+			cmd = template % (k, n, iter_count)
+			print cmd
+			os.system(cmd)
+			count += 1
+
+		ten *= 2
+
+	k *= 2
+
 
 print count
 
