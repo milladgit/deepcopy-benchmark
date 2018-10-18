@@ -84,53 +84,56 @@ int main(int argc, char const *argv[]) {
 		exit(0);
 	}
 	int N = atoi(argv[1]);
-	double time, total_time;
+	double time, total_time, time_alloc, time_init, time_to_gpu, time_compute, time_from_gpu, time_check;
 
 	total_time = omp_get_wtime();
 
 
-	time = omp_get_wtime();
+	time_alloc = omp_get_wtime();
 	// allocating classes
 	%s
-	time = omp_get_wtime() - time;
-	show_time(time, "Allocation");
+	time_alloc = omp_get_wtime() - time_alloc;
+	show_time(time_alloc, "Allocation");
 
 
-	time = omp_get_wtime();
+	time_init = omp_get_wtime();
 	// initializing the variables
 	%s
-	time = omp_get_wtime() - time;
-	show_time(time, "Initialization");
+	time_init = omp_get_wtime() - time_init;
+	show_time(time_init, "Initialization");
 
 
-	time = omp_get_wtime();
+	time_to_gpu = omp_get_wtime();
 	// transfer data to gpu
 	%s
-	time = omp_get_wtime() - time;
-	show_time(time, "Transfer to GPU");
+	time_to_gpu = omp_get_wtime() - time_to_gpu;
+	show_time(time_to_gpu, "Transfer to GPU");
 
 
-	time = omp_get_wtime();
+	time_compute = omp_get_wtime();
 	// compute section
 	%s
-	time = omp_get_wtime() - time;
-	show_time(time, "Compute");
+	time_compute = omp_get_wtime() - time_compute;
+	show_time(time_compute, "Compute");
 
 
-	time = omp_get_wtime();
+	time_from_gpu = omp_get_wtime();
 	// transfer data from gpu
 	%s
-	time = omp_get_wtime() - time;
-	show_time(time, "Transfer from GPU");
+	time_from_gpu = omp_get_wtime() - time_from_gpu;
+	show_time(time_from_gpu, "Transfer from GPU");
 
 
-	time = omp_get_wtime();
+	time_check = omp_get_wtime();
 	// check results
 	%s
-	time = omp_get_wtime() - time;
-	show_time(time, "Check results");
+	time_check = omp_get_wtime() - time_check;
+	show_time(time_check, "Check results");
 
 	total_time = omp_get_wtime() - total_time;
+//	show_time(total_time, "Total time");
+
+	total_time = time_alloc + time_init + time_to_gpu + time_compute + time_from_gpu + time_check;
 	show_time(total_time, "Total time");
 
 	return 0;
