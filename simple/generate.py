@@ -389,8 +389,7 @@ def main():
 
 	files_generated = 0
 
-	# for count in range(2,11):
-	for count in [5]:
+	for count in range(2,11):
 		for all_init, all_used in [(True, True), (True, False), (False, False)]:
 
 			for approach in ["uvm", "pointerchain", "serialize"]:
