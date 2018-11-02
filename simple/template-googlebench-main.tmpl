@@ -99,54 +99,54 @@ void deepcopy_body(benchmark::State& state) {
 	datatype scale = 31;
 	int N = state.range(0);
 
-	time_type start_time, end_time, total_start_time, total_end_time;
+	// time_type start_time, end_time, total_start_time, total_end_time;
 
-	total_start_time = chrono::high_resolution_clock::now();
+	// total_start_time = chrono::high_resolution_clock::now();
 
 
-	start_time = chrono::high_resolution_clock::now();
+	// start_time = chrono::high_resolution_clock::now();
 	// allocating classes
 	%s
-	end_time = chrono::high_resolution_clock::now();
+	// end_time = chrono::high_resolution_clock::now();
 	// show_time(start_time, end_time, "Allocation");
 
 
-	start_time = chrono::high_resolution_clock::now();
+	// start_time = chrono::high_resolution_clock::now();
 	// initializing the variables
 	%s
-	end_time = chrono::high_resolution_clock::now();
+	// end_time = chrono::high_resolution_clock::now();
 	// show_time(start_time, end_time, "Initialization");
 
 
-	start_time = chrono::high_resolution_clock::now();
+	// start_time = chrono::high_resolution_clock::now();
 	// transfer data to gpu
 	%s
-	end_time = chrono::high_resolution_clock::now();
+	// end_time = chrono::high_resolution_clock::now();
 	// show_time(start_time, end_time, "Transfer to GPU");
 
 
-	start_time = chrono::high_resolution_clock::now();
+	// start_time = chrono::high_resolution_clock::now();
 	// compute section
 	%s
-	end_time = chrono::high_resolution_clock::now();
+	// end_time = chrono::high_resolution_clock::now();
 	// show_time(start_time, end_time, "Compute");
 
 
-	start_time = chrono::high_resolution_clock::now();
+	// start_time = chrono::high_resolution_clock::now();
 	// transfer data from gpu
 	%s
-	end_time = chrono::high_resolution_clock::now();
+	// end_time = chrono::high_resolution_clock::now();
 	// show_time(start_time, end_time, "Transfer from GPU");
 
 
-	start_time = chrono::high_resolution_clock::now();
+	// start_time = chrono::high_resolution_clock::now();
 	// check results
 	%s
-	end_time = chrono::high_resolution_clock::now();
+	// end_time = chrono::high_resolution_clock::now();
 	// show_time(start_time, end_time, "Check results");
 
 
-	total_end_time = chrono::high_resolution_clock::now();
+	// total_end_time = chrono::high_resolution_clock::now();
 	// show_time(total_start_time, total_end_time, "Total time");
 
 }
