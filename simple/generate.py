@@ -161,6 +161,42 @@ def generate_compute_code(count, add_pointer_chain_pragmas=False, use_all_arrays
 	return pointerchain_declare, tmpl % (pointerchain_begin, total_var_chain, computations, pointerchain_end)
 
 
+def generate_check_results_code_2(count, add_pointer_chain_pragmas=False, use_all_arrays=False):
+	tmpl = """
+	for(int i=0;i<N;i++) {
+		%s
+	}
+	"""
+
+	computations = ""
+
+	total_var_chain = ""
+
+	if use_all_arrays:
+		i = 2
+		declare = ""
+		while i < count+1:
+			var_chain = generate_chain(i)
+			total_var_chain += var_chain + ","
+			declare += "%s{datatype*}," % (var_chain)
+			var = var_chain + "[i] *= scale;\n"
+			computations += var
+			i += 1
+		if len(declare) > 0:
+			declare = declare[:-1]
+
+	else:
+		var_chain = generate_chain(count)
+		declare = var_chain
+		total_var_chain += var_chain + ","
+		computations = var_chain + "[i] *= scale;"
+
+	if len(total_var_chain) > 1:
+		total_var_chain = total_var_chain[:-1]
+
+	return tmpl % (computations)
+
+
 def generate_check_results_code(count):
 	d_var = "datatype *d = %s;" % (generate_chain(count))
 
@@ -301,7 +337,7 @@ def generate_transfer_from_gpu_serialize_detach(count, init_all_arrays):
 
 
 
-def create_file(count, init_all_arrays, use_all_arrays, with_pointerchain, enable_serialize, output_filename):
+def create_file(count, init_all_arrays, use_all_arrays, with_pointerchain, enable_serialize, output_filename, template_filename):
 	class_tmpl = load_template_file("template-class.tmpl")
 	class_defs = generate_classes(class_tmpl, count)
 
@@ -314,7 +350,7 @@ def create_file(count, init_all_arrays, use_all_arrays, with_pointerchain, enabl
 
 	pointerchain_declare, compute_code = generate_compute_code(count, with_pointerchain, use_all_arrays)
 
-	results_code = generate_check_results_code(count)
+	results_code = generate_check_results_code_2(count, with_pointerchain, use_all_arrays)
 
 	transfer_to_gpu = ""
 	transfer_from_gpu = ""
@@ -330,7 +366,7 @@ def create_file(count, init_all_arrays, use_all_arrays, with_pointerchain, enabl
 	if with_pointerchain:
 		transfer_to_gpu = pointerchain_declare + "\n\n" + transfer_to_gpu
 
-	main_tmpl = load_template_file("template-main.tmpl")
+	main_tmpl = load_template_file(template_filename)
 	main_file = main_tmpl % (class_defs, chain_of_pointers, init_only_last, transfer_to_gpu, compute_code, transfer_from_gpu, results_code)
 
 	f = open(output_filename, "w")
@@ -348,10 +384,13 @@ def main():
 
 	os.system("rm -rf src/")
 	os.system("mkdir -p src")
+	os.system("rm -rf src-googlebench/")
+	os.system("mkdir -p src-googlebench")
 
 	files_generated = 0
 
-	for count in range(2,11):
+	# for count in range(2,11):
+	for count in [5]:
 		for all_init, all_used in [(True, True), (True, False), (False, False)]:
 
 			for approach in ["uvm", "pointerchain", "serialize"]:
@@ -382,13 +421,13 @@ def main():
 				elif approach == "serialize":
 					output_filename += "-seriz"
 
-				output_filename = "./src/" + output_filename + ".cpp"
-
-
-				create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename)
+				output_filename_final = "./src/" + output_filename + ".cpp"
+				create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename_final, "template-main.tmpl")
+				output_filename_final = "./src-googlebench/" + output_filename + ".cpp"
+				create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename_final, "template-googlebench-main.tmpl")
 				files_generated += 1
 
-	print "%s files were created!" % (files_generated)
+	print "%s x 2 files were created!" % (files_generated)
 
 
 if __name__ == '__main__':
