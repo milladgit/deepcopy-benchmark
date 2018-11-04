@@ -402,7 +402,7 @@ def main():
 				elif approach == "serialize":
 					enable_serialize = True
 
-				output_filename = "benchmark-c%d" % (count)
+				output_filename = "benchmark-k%d" % (count)
 				if all_init:
 					output_filename += "-allinit"
 				else:
