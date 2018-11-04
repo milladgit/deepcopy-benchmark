@@ -20,8 +20,8 @@ def generate_main_body(main_bench, google_bench):
 	ahf="python ~/acchelper/acchelper.py forward"
 	ahb="python ~/acchelper/acchelper.py backward"
 
-	google_bench_header 	= "-I/home/millad/benchmark/bin/include/"
-	google_bench_lib_path  	= "-L/home/millad/benchmark/bin/lib"
+	google_bench_header 	= "-I%s/benchmark/bin/include/" % (os.environ["HOME"])
+	google_bench_lib_path  	= "-L%s/benchmark/bin/lib" % (os.environ["HOME"])
 	google_bench_lib 		= "-lbenchmark"
 
 	if main_bench:
