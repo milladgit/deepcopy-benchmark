@@ -374,7 +374,7 @@ def create_file(count, init_all_arrays, use_all_arrays, with_pointerchain, enabl
 	f.close()
 
 
-def main():
+def generate_main_body(main_bench, google_bench):
 
 	count = 5
 	init_all_arrays = True
@@ -382,10 +382,13 @@ def main():
 	with_pointerchain = True
 	enable_serialize = False
 
-	os.system("rm -rf src/")
-	os.system("mkdir -p src")
-	os.system("rm -rf src-googlebench/")
-	os.system("mkdir -p src-googlebench")
+	if main_bench:
+		os.system("rm -rf src/")
+		os.system("mkdir -p src")
+
+	if google_bench:
+		os.system("rm -rf src-googlebench/")
+		os.system("mkdir -p src-googlebench")
 
 	files_generated = 0
 
@@ -420,13 +423,61 @@ def main():
 				elif approach == "serialize":
 					output_filename += "-seriz"
 
-				output_filename_final = "./src/" + output_filename + ".cpp"
-				create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename_final, "template-main.tmpl")
-				output_filename_final = "./src-googlebench/" + output_filename + ".cpp"
-				create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename_final, "template-googlebench-main.tmpl")
+				if main_bench:
+					output_filename_final = "./src/" + output_filename + ".cpp"
+					create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename_final, "template-main.tmpl")
+
+				if google_bench:
+					output_filename_final = "./src-googlebench/" + output_filename + ".cpp"
+					create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename_final, "template-googlebench-main.tmpl")
+				
 				files_generated += 1
 
-	print "%s x 2 files were created!" % (files_generated)
+	multiplier = 0
+	if main_bench:
+		multiplier += 1
+	if google_bench:
+		multiplier += 1
+	print "%s x %d files were generated!" % (files_generated, multiplier)
+
+
+
+def is_integer(value):
+	try:
+		int(value)
+		return True
+	except ValueError:
+		print "Unable to parse the input!"
+		return False
+
+
+def main():
+
+	while True:
+		print "\n\nWhich source files to generate:"
+		print "1- Main source files"
+		print "2- Google Benchmark files"
+		print "3- Both"
+		print "0- Exit"
+
+		inp = raw_input("Your choice: ")
+		print "---------"
+		if is_integer(inp):
+			inp = int(inp)
+			if inp == 0:
+				break
+			elif inp == 1:
+				generate_main_body(True, False)
+			elif inp == 2:
+				generate_main_body(False, True)
+			elif inp == 3:
+				generate_main_body(True, True)
+			else:
+				print "Please choose from above options."
+				continue
+			break
+
+
 
 
 if __name__ == '__main__':
