@@ -316,8 +316,8 @@ static void BM_Deepcopy(benchmark::State& state) {
 }
 static void CustomArguments(benchmark::internal::Benchmark* b) {
 
-	for(int n=10000;n<=5120000;n*=2)
-		for(int q=4;q<=64;q*=2)
+	for(int n=100;n<=1000000;n*=10)
+		for(int q=4;q<=32;q*=2)
 			b->Args({n, q});
 
 }
