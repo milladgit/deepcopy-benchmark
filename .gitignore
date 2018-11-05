@@ -20,8 +20,6 @@ output_*
 
 *.pyc
 
-src/
-src/*
 bin/
 bin/*
 
