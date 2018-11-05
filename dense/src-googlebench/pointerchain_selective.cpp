@@ -1,3 +1,4 @@
+#include <benchmark/benchmark.h>
 #include <stdio.h>
 #include <openacc.h>
 #include <omp.h>
