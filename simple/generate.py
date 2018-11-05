@@ -374,7 +374,7 @@ def create_file(count, init_all_arrays, use_all_arrays, with_pointerchain, enabl
 	f.close()
 
 
-def generate_main_body(main_bench, google_bench):
+def generate_main_body(main_bench, google_bench, google_bench_compute):
 
 	count = 5
 	init_all_arrays = True
@@ -389,6 +389,10 @@ def generate_main_body(main_bench, google_bench):
 	if google_bench:
 		os.system("rm -rf src-googlebench/")
 		os.system("mkdir -p src-googlebench")
+
+	if google_bench_compute:
+		os.system("rm -rf src-googlebench-compute/")
+		os.system("mkdir -p src-googlebench-compute")
 
 	files_generated = 0
 
@@ -430,6 +434,10 @@ def generate_main_body(main_bench, google_bench):
 				if google_bench:
 					output_filename_final = "./src-googlebench/" + output_filename + ".cpp"
 					create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename_final, "template-googlebench-main.tmpl")
+
+				if google_bench_compute:
+					output_filename_final = "./src-googlebench-compute/" + output_filename + ".cpp"
+					create_file(count, all_init, all_used, with_pointerchain, enable_serialize, output_filename_final, "template-googlebench-compute-main.tmpl")
 				
 				files_generated += 1
 
@@ -437,6 +445,8 @@ def generate_main_body(main_bench, google_bench):
 	if main_bench:
 		multiplier += 1
 	if google_bench:
+		multiplier += 1
+	if google_bench_compute:
 		multiplier += 1
 	print "%s x %d files were generated!" % (files_generated, multiplier)
 
@@ -457,7 +467,7 @@ def main():
 		print "\n\nWhich source files to generate:"
 		print "1- Main source files"
 		print "2- Google Benchmark files"
-		print "3- Both"
+		print "3- Google Benchmark files (Compute section)"
 		print "0- Exit"
 
 		inp = raw_input("Your choice: ")
@@ -467,11 +477,11 @@ def main():
 			if inp == 0:
 				break
 			elif inp == 1:
-				generate_main_body(True, False)
+				generate_main_body(True, False, False)
 			elif inp == 2:
-				generate_main_body(False, True)
+				generate_main_body(False, True, False)
 			elif inp == 3:
-				generate_main_body(True, True)
+				generate_main_body(False, False, True)
 			else:
 				print "Please choose from above options."
 				continue

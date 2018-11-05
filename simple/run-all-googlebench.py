@@ -30,7 +30,7 @@ def main():
 	for filename in file_list:
 
 		app = filename
-		output_file = output_path + filename[len(path)+1+len("exe_"):]
+		output_file = output_path + filename[len(path)+len("exe_"):]
 		cmd = "%s --benchmark_min_time=2 --benchmark_format=csv > %s" % (app, output_file)
 		os.system(cmd)
 
