@@ -34,6 +34,7 @@ def main():
 	k = int(sys.argv[1])
 	n = int(sys.argv[2])
 	iter_count = int(sys.argv[3])
+	output_folder = sys.argv[4]
 
 	# output_folder = output_folder_pattern % (n)
 	# os.system("rm -rf %s" % (output_folder))

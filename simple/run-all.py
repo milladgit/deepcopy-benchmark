@@ -2,7 +2,7 @@
 
 import os,sys
 
-template = "python run.py %d %d %d"
+template = "python run.py %d %d %d %s"
 
 d = dict()
 d[10] = 50
@@ -17,11 +17,11 @@ d[100000000] = 10
 
 count = 0
 
-for i in range(2,11):
-#for i in [10]:
+#for i in range(2,11):
+for i in [10]:
 	ten = 10
 	for j in range(8):
-		cmd = template % (i, ten, d[ten])
+		cmd = template % (i, ten, d[ten], sys.argv[1])
 		print cmd
 		os.system(cmd)
 		count += 1
