@@ -29,7 +29,9 @@ def main():
 	for app in app_list:
 		filename = bin_folder + "/" + app
 		output_filename = output_folder + "/" + "%s-k%d-n%d" % (app, k, n)
-		os.system("rm -f %s" % (output_filename))
+		#os.system("rm -f %s" % (output_filename))
+		if os.path.isfile(output_filename):
+			continue
 		for i in range(iter_count):
 			os.system("%s %d %d >> %s" % (filename, n, k, output_filename))
 

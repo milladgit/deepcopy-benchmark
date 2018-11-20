@@ -29,11 +29,8 @@ def main():
 
 	for filename in file_list:
 
-		if "k8" not in filename and "k9" not in filename and "k10" not in filename:
-			continue
-
 		app = filename
-		output_file = output_path + filename[len(path)+len("exe_"):]
+		output_file = output_path + filename[len(path):]
 		cmd = "%s --benchmark_min_time=2 --benchmark_format=csv > %s" % (app, output_file)
 		os.system(cmd)
 

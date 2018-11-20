@@ -7,5 +7,5 @@
 source ~/.bashrc
 
 #python run-all.py ./output-volta
-python run-all-googlebench.py bin-googlebench/ output-volta/
+python run-all-googlebench.py bin-googlebench-compute/ output-volta-compute/
 
