@@ -208,7 +208,7 @@ void transfer_to_host(L0 *a0, int N, int Q, TransferUnit &tu) {
 }
 
 void do_computation(L0 *a0, int N, int Q, datatype scale) {
-	#pragma acc parallel loop present(a0[0:1])
+	// #pragma acc parallel loop present(a0[0:1])
 	for(int i=0;i<N;i++) {
 		// a0->A[i] *= scale;
 

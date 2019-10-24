@@ -71,9 +71,9 @@ def generate_main_body(main_bench, google_bench, google_bench_compute):
 		compile_cmd = "pgc++ -std=c++11 -w -O3 -mp -acc -ta=tesla%s %s %s %s -o %s %s >> log-compile.log 2>&1"
 
 		for f in filelist:
-			managed = ":cc70,cc60"
+			managed = ":keep,cc70"
 			if "uvm" in f:
-				managed = ":cc70,cc60,managed"
+				managed += ",managed"
 
 			last_index_slash = f.rfind('/')
 			if last_index_slash == -1:

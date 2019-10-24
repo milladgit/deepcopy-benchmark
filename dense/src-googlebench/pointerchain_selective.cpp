@@ -101,18 +101,18 @@ L0 *build_the_structure(int N, int Q) {
 
 void do_computation_2(L0 *a0, int N, int Q, datatype scale) {
 	// #pragma acc parallel loop
-	// for(int i=0;i<N;i++) 
+	// for(int i=0;i<N;i++)
 	// 	a0->A[i] *= scale;
 
 	// #pragma acc parallel loop
-	// for(int j=0;j<Q;j++) 
+	// for(int j=0;j<Q;j++)
 	// 	for(int i=0;i<N;i++)
 	// 		a0->Anext[j].A[i] *= scale;
 
 	// #pragma acc parallel loop
-	// for(int j=0;j<Q;j++) 
-	// 	for(int k=0;k<Q;k++) 
-	// 		for(int i=0;i<N;i++) 
+	// for(int j=0;j<Q;j++)
+	// 	for(int k=0;k<Q;k++)
+	// 		for(int i=0;i<N;i++)
 	// 			a0->Anext[j].Anext[k].A[i] *= scale;
 
 
@@ -121,13 +121,14 @@ void do_computation_2(L0 *a0, int N, int Q, datatype scale) {
 	int t=Q-1;
 
 
-	#pragma acchelper declare(a0->Anext[j].Anext[k].Anext[t].A{datatype*})
+//	#pragma acchelper declare(a0->Anext[j].Anext[k].Anext[t].A{datatype*})
+	datatype* __a0_Anext_j__Anext_k__Anext_t__A__ = a0->Anext[j].Anext[k].Anext[t].A;
 
-	#pragma acchelper region begin
+//	#pragma acchelper region begin
 	#pragma acc parallel loop
-	for(int i=0;i<N;i++) 
-		a0->Anext[j].Anext[k].Anext[t].A[i] *= scale;
-	#pragma acchelper region end
+	for(int i=0;i<N;i++)
+		__a0_Anext_j__Anext_k__Anext_t__A__[i] *= scale;
+//	#pragma acchelper region end
 
 
 }
@@ -139,11 +140,12 @@ void transfer_to_gpu(L0 *a0, int N, int Q) {
 	int t=Q-1;
 
 
-	#pragma acchelper declare(a0->Anext[j].Anext[k].Anext[t].A{datatype*})
+//	#pragma acchelper declare(a0->Anext[j].Anext[k].Anext[t].A{datatype*})
+	datatype* __a0_Anext_j__Anext_k__Anext_t__A__ = a0->Anext[j].Anext[k].Anext[t].A;
 
-	#pragma acchelper region begin
-	#pragma enter data copyin(a0->Anext[j].Anext[k].Anext[t].A[0:N])
-	#pragma acchelper region end
+//	#pragma acchelper region begin
+	#pragma enter data copyin(__a0_Anext_j__Anext_k__Anext_t__A__[0:N])
+//	#pragma acchelper region end
 
 
 }
@@ -154,11 +156,12 @@ void transfer_to_host(L0 *a0, int N, int Q) {
 	int t=Q-1;
 
 
-	#pragma acchelper declare(a0->Anext[j].Anext[k].Anext[t].A{datatype*})
+//	#pragma acchelper declare(a0->Anext[j].Anext[k].Anext[t].A{datatype*})
+	datatype* __a0_Anext_j__Anext_k__Anext_t__A__ = a0->Anext[j].Anext[k].Anext[t].A;
 
-	#pragma acchelper region begin
-	#pragma exit data copyout(a0->Anext[j].Anext[k].Anext[t].A[0:N])
-	#pragma acchelper region end
+//	#pragma acchelper region begin
+	#pragma exit data copyout(__a0_Anext_j__Anext_k__Anext_t__A__[0:N])
+//	#pragma acchelper region end
 
 }
 
@@ -169,7 +172,7 @@ void check_results(L0 *a0, int N, int Q, datatype scale) {
 	int t=Q-1;
 
 
-	for(int i=0;i<N;i++) 
+	for(int i=0;i<N;i++)
 		a0->Anext[j].Anext[k].Anext[t].A[i] *= scale;
 }
 

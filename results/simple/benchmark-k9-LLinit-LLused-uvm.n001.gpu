@@ -1,0 +1,291 @@
+target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v16:16:16-v32:32:32-v64:64:64-v128:128:128-n16:32:64"
+target triple = "nvptx64-unknown"
+; Begin User structs
+%struct.__fcomplex = type {float, float}
+%struct.__dcomplex = type {double, double}
+%struct.DT1_824 = type {double*, i32, %struct.DT1_817*, i32}
+%struct.DT1_817 = type {double*, i32, %struct.DT1_810*, i32}
+%struct.DT1_810 = type {double*, i32, %struct.DT1_803*, i32}
+%struct.DT1_803 = type {double*, i32, %struct.DT1_796*, i32}
+%struct.DT1_796 = type {double*, i32, %struct.DT1_789*, i32}
+%struct.DT1_789 = type {double*, i32, %struct.DT1_782*, i32}
+%struct.DT1_782 = type {double*, i32, %struct.DT1_773*, i32}
+%struct.DT1_773 = type {double*, i32, %struct.DT1_765*, i32}
+%struct.DT1_765 = type {[1 x i8]}
+; End User structs
+
+; Begin module variables
+
+
+; End module variables
+
+define  ptx_kernel void @_Z21deepcopy_body_192_gpuRN9benchmark5StateE(i32 %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym3, %struct.DT1_824* noalias %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym4, double %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym6) nounwind {
+_BB_VB0:
+    %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym22_0 = alloca i32
+    %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym23_0 = alloca i32
+    %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym3_p0 = alloca i32
+    store i32 %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym3, i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym3_p0 
+    %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym4_p0 = alloca %struct.DT1_824*
+    store %struct.DT1_824* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym4, %struct.DT1_824** %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym4_p0 
+    %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym6_p0 = alloca double
+    store double %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym6, double* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym6_p0 
+    br label %_BB_1
+_BB_1:
+
+    br label %_BB_2
+_BB_2:
+    br label %_BB_3
+_BB_3:
+    br label %_BB_4
+_BB_4:
+    br label %_BB_9
+_BB_9:
+    br label %_BB_19
+_BB_19:
+
+    store i32 0, i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym22_0 , !dbg !19
+    br label %_BB_20, !dbg !19
+_BB_20:
+
+    %li18 = call i32 @llvm.nvvm.read.ptx.sreg.ctaid.x( ), !dbg !19
+    %li19 = mul i32 %li18, 128, !dbg !19
+    %li20 = call i32 @llvm.nvvm.read.ptx.sreg.tid.x( ), !dbg !19
+    %li22 = load i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym22_0, !dbg !19
+    %li183 = add i32 %li19, %li20, !dbg !19
+    %li184 = add i32 %li183, %li22, !dbg !19
+    store i32 %li184, i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym23_0 , !dbg !19
+    %li55 = load i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym23_0, !dbg !19
+    %li56 = load i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym3_p0, !dbg !19
+
+    %li116 = add i32 %li56, -1, !dbg !19
+    %li58_0 = icmp sgt i32 %li55, %li116, !dbg !19
+    br i1 %li58_0, label %_BB_26, label %_BBFT_58, !dbg !19
+_BBFT_58:
+    br label %_BB_28, !dbg !19
+_BB_28:
+    %li59 = load double* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym6_p0, !dbg !88
+    %li60_0_0 = bitcast %struct.DT1_824** %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym4_p0 to i8**, !dbg !88
+    %li60 = load i8** %li60_0_0, !dbg !88
+
+    %li62 = getelementptr i8* %li60, i64 16, !dbg !88
+    %li63_t0 = bitcast i8* %li62 to i8**, !dbg !88
+    %li63 = load i8** %li63_t0, !dbg !88
+    %li65 = getelementptr i8* %li63, i64 16, !dbg !88
+    %li66_t0 = bitcast i8* %li65 to i8**, !dbg !88
+    %li66 = load i8** %li66_t0, !dbg !88
+    %li68 = getelementptr i8* %li66, i64 16, !dbg !88
+    %li69_t0 = bitcast i8* %li68 to i8**, !dbg !88
+    %li69 = load i8** %li69_t0, !dbg !88
+    %li71 = getelementptr i8* %li69, i64 16, !dbg !88
+    %li72_t0 = bitcast i8* %li71 to i8**, !dbg !88
+    %li72 = load i8** %li72_t0, !dbg !88
+    %li74 = getelementptr i8* %li72, i64 16, !dbg !88
+    %li75_t0 = bitcast i8* %li74 to i8**, !dbg !88
+    %li75 = load i8** %li75_t0, !dbg !88
+    %li77 = getelementptr i8* %li75, i64 16, !dbg !88
+    %li78_t0 = bitcast i8* %li77 to i8**, !dbg !88
+    %li78 = load i8** %li78_t0, !dbg !88
+    %li80 = getelementptr i8* %li78, i64 16, !dbg !88
+    %li81_t0 = bitcast i8* %li80 to i8**, !dbg !88
+    %li81 = load i8** %li81_t0, !dbg !88
+    %li82_t0 = bitcast i8* %li81 to i8**, !dbg !88
+    %li82 = load i8** %li82_t0, !dbg !88
+    %li84 = load i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym23_0, !dbg !88
+    %li85 = sext i32 %li84 to i64, !dbg !88
+
+    %li87 = mul i64 %li85, 8, !dbg !88
+    %li88 = getelementptr i8* %li82, i64 %li87, !dbg !88
+    %li89_t0 = bitcast i8* %li88 to double*, !dbg !88
+    %li89 = load double* %li89_t0, !dbg !88
+    %li90 = fmul double %li59, %li89, !dbg !88
+    %li91_t0 = bitcast i8* %li88 to double*, !dbg !88
+    store double %li90, double* %li91_t0 , !dbg !88
+    br label %_BB_26, !dbg !88
+_BB_26:
+    %li111 = load i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym3_p0, !dbg !19
+    %li93 = call i32 @llvm.nvvm.read.ptx.sreg.nctaid.x( ), !dbg !19
+
+    %li95 = mul i32 %li93, 128, !dbg !19
+    %li97 = load i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym22_0, !dbg !19
+    %li98 = add i32 %li95, %li97, !dbg !19
+    store i32 %li98, i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym22_0 , !dbg !19
+    %li110 = load i32* %_Z21deepcopy_body_192_gpuRN9benchmark5StateE__sym22_0, !dbg !19
+    %li113_0 = icmp slt i32 %li110, %li111, !dbg !19
+    br i1 %li113_0, label %_BB_20, label %_BBFT_113, !dbg !19
+_BBFT_113:
+    br label %_BB_35, !dbg !19
+_BB_35:
+    ret void , !dbg !19
+}
+
+
+declare i32 @llvm.nvvm.read.ptx.sreg.nctaid.x() nounwind
+declare i32 @llvm.nvvm.read.ptx.sreg.tid.x() nounwind
+declare i32 @llvm.nvvm.read.ptx.sreg.ctaid.x() nounwind
+
+; Named metadata
+!llvm.module.flags = !{ !1, !2 }
+!llvm.dbg.cu = !{ !10 }
+!nvvm.annotations = !{ !89, !90 }
+!nvvmir.version = !{ !91 }
+
+; Metadata
+!1 = metadata !{ i32 2, metadata !"Dwarf Version", i32 4 }
+!2 = metadata !{ i32 2, metadata !"Debug Info Version", i32 1 }
+; !3 = !DIFile(filename: "src-googlebench/benchmark-k9-LLinit-LLused-uvm.cpp", directory: "/home/millad/deepcopy-benchmark/simple")
+!3 = metadata !{ metadata !"src-googlebench/benchmark-k9-LLinit-LLused-uvm.cpp", metadata !"/home/millad/deepcopy-benchmark/simple" }
+; !4 = !DIFile(tag: DW_TAG_file_type, pair: !3)
+!4 = metadata !{ i32 786473, metadata !3 }
+!5 = metadata !{  }
+!6 = metadata !{  }
+!7 = metadata !{ metadata !14 }
+!8 = metadata !{  }
+!9 = metadata !{  }
+; !10 = !DICompileUnit(file: !3, language: DW_LANG_C_plus_plus, producer: " PGCC 18.10-0", enums: !5, retainedTypes: !6, subprograms: !7, globals: !8, imports: !9)
+!10 = metadata !{ i32 786449, metadata !3, i32 4, metadata !" PGCC 18.10-0", i1 0, metadata !"", i32 0, metadata !5, metadata !6, metadata !7, metadata !8, metadata !9, metadata !"" }
+!11 = metadata !{ metadata !20, metadata !87, metadata !23 }
+; !12 = !DISubroutineType(types: !11)
+!12 = metadata !{ i32 786453, i32 0, null, metadata !"", i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !11, i32 0, null, null }
+!13 = metadata !{  }
+; !14 = !DISubprogram(file: !3, scope: !4, name: "_Z21deepcopy_body_192_gpuRN9benchmark5StateE", linkageName: "_Z21deepcopy_body_192_gpuRN9benchmark5StateE", line: 192, type: !12, isDefinition: true, function: void (i32, %struct.DT1_824*, double)* @_Z21deepcopy_body_192_gpuRN9benchmark5StateE, variables: !13, scopeLine: 192)
+!14 = metadata !{ i32 786478, metadata !3, metadata !4, metadata !"_Z21deepcopy_body_192_gpuRN9benchmark5StateE", metadata !"_Z21deepcopy_body_192_gpuRN9benchmark5StateE", metadata !"_Z21deepcopy_body_192_gpuRN9benchmark5StateE", i32 192, metadata !12, i1 0, i1 1, i32 0, i32 0, null, i32 0, i1 0, void (i32, %struct.DT1_824*, double)* @_Z21deepcopy_body_192_gpuRN9benchmark5StateE, null, null, metadata !13, i32 192 }
+; !15 = !MDLocation(line: 192, column: 1, scope: !14)
+!15 = metadata !{ i32 192, i32 1, metadata !14, null }
+; !16 = !DILexicalBlock(file: !3, scope: !14, line: 192, column: 1)
+!16 = metadata !{ i32 786443, metadata !3, metadata !14, i32 192, i32 1, i32 0 }
+; !17 = !MDLocation(line: 192, column: 1, scope: !16)
+!17 = metadata !{ i32 192, i32 1, metadata !16, null }
+; !18 = !DILexicalBlock(file: !3, scope: !16, line: 209, column: 1)
+!18 = metadata !{ i32 786443, metadata !3, metadata !16, i32 209, i32 1, i32 1 }
+; !19 = !MDLocation(line: 209, column: 1, scope: !18)
+!19 = metadata !{ i32 209, i32 1, metadata !18, null }
+!20 = metadata !{ i32 786491 }
+!21 = metadata !{ metadata !25, metadata !27, metadata !85, metadata !86 }
+; !22 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L0", size: 256, align: 64, elements: !21)
+!22 = metadata !{ i32 786451, metadata !3, null, metadata !"L0", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !21, i32 0, null, null, null }
+; !23 = !DIBasicType(tag: DW_TAG_base_type, name: "double", size: 64, align: 64, encoding: DW_ATE_float)
+!23 = metadata !{ i32 786468, null, null, metadata !"double", i32 0, i64 64, i64 64, i64 0, i32 0, i32 4 }
+; !24 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !23)
+!24 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !23 }
+; !25 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !22, name: "A", size: 64, align: 64, baseType: !24)
+!25 = metadata !{ i32 786445, metadata !3, metadata !22, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !24 }
+; !26 = !DIBasicType(tag: DW_TAG_base_type, name: "int", size: 32, align: 32, encoding: DW_ATE_signed)
+!26 = metadata !{ i32 786468, null, null, metadata !"int", i32 0, i64 32, i64 32, i64 0, i32 0, i32 5 }
+; !27 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !22, name: "nA", size: 32, align: 32, offset: 64, baseType: !26)
+!27 = metadata !{ i32 786445, metadata !3, metadata !22, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !26 }
+!28 = metadata !{ metadata !30, metadata !31, metadata !82, metadata !83 }
+; !29 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L1", size: 256, align: 64, elements: !28)
+!29 = metadata !{ i32 786451, metadata !3, null, metadata !"L1", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !28, i32 0, null, null, null }
+; !30 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !29, name: "A", size: 64, align: 64, baseType: !24)
+!30 = metadata !{ i32 786445, metadata !3, metadata !29, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !24 }
+; !31 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !29, name: "nA", size: 32, align: 32, offset: 64, baseType: !26)
+!31 = metadata !{ i32 786445, metadata !3, metadata !29, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !26 }
+!32 = metadata !{ metadata !34, metadata !35, metadata !79, metadata !80 }
+; !33 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L2", size: 256, align: 64, elements: !32)
+!33 = metadata !{ i32 786451, metadata !3, null, metadata !"L2", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !32, i32 0, null, null, null }
+; !34 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !33, name: "A", size: 64, align: 64, baseType: !24)
+!34 = metadata !{ i32 786445, metadata !3, metadata !33, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !24 }
+; !35 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !33, name: "nA", size: 32, align: 32, offset: 64, baseType: !26)
+!35 = metadata !{ i32 786445, metadata !3, metadata !33, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !26 }
+!36 = metadata !{ metadata !38, metadata !39, metadata !76, metadata !77 }
+; !37 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L3", size: 256, align: 64, elements: !36)
+!37 = metadata !{ i32 786451, metadata !3, null, metadata !"L3", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !36, i32 0, null, null, null }
+; !38 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !37, name: "A", size: 64, align: 64, baseType: !24)
+!38 = metadata !{ i32 786445, metadata !3, metadata !37, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !24 }
+; !39 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !37, name: "nA", size: 32, align: 32, offset: 64, baseType: !26)
+!39 = metadata !{ i32 786445, metadata !3, metadata !37, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !26 }
+!40 = metadata !{ metadata !42, metadata !43, metadata !73, metadata !74 }
+; !41 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L4", size: 256, align: 64, elements: !40)
+!41 = metadata !{ i32 786451, metadata !3, null, metadata !"L4", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !40, i32 0, null, null, null }
+; !42 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !41, name: "A", size: 64, align: 64, baseType: !24)
+!42 = metadata !{ i32 786445, metadata !3, metadata !41, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !24 }
+; !43 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !41, name: "nA", size: 32, align: 32, offset: 64, baseType: !26)
+!43 = metadata !{ i32 786445, metadata !3, metadata !41, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !26 }
+!44 = metadata !{ metadata !46, metadata !47, metadata !70, metadata !71 }
+; !45 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L5", size: 256, align: 64, elements: !44)
+!45 = metadata !{ i32 786451, metadata !3, null, metadata !"L5", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !44, i32 0, null, null, null }
+; !46 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !45, name: "A", size: 64, align: 64, baseType: !24)
+!46 = metadata !{ i32 786445, metadata !3, metadata !45, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !24 }
+; !47 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !45, name: "nA", size: 32, align: 32, offset: 64, baseType: !26)
+!47 = metadata !{ i32 786445, metadata !3, metadata !45, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !26 }
+!48 = metadata !{ metadata !50, metadata !51, metadata !67, metadata !68 }
+; !49 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L6", size: 256, align: 64, elements: !48)
+!49 = metadata !{ i32 786451, metadata !3, null, metadata !"L6", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !48, i32 0, null, null, null }
+; !50 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !49, name: "A", size: 64, align: 64, baseType: !24)
+!50 = metadata !{ i32 786445, metadata !3, metadata !49, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !24 }
+; !51 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !49, name: "nA", size: 32, align: 32, offset: 64, baseType: !26)
+!51 = metadata !{ i32 786445, metadata !3, metadata !49, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !26 }
+!52 = metadata !{ metadata !54, metadata !55, metadata !64, metadata !65 }
+; !53 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L7", size: 256, align: 64, elements: !52)
+!53 = metadata !{ i32 786451, metadata !3, null, metadata !"L7", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !52, i32 0, null, null, null }
+; !54 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !53, name: "A", size: 64, align: 64, baseType: !24)
+!54 = metadata !{ i32 786445, metadata !3, metadata !53, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !24 }
+; !55 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !53, name: "nA", size: 32, align: 32, offset: 64, baseType: !26)
+!55 = metadata !{ i32 786445, metadata !3, metadata !53, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !26 }
+!56 = metadata !{ metadata !62 }
+; !57 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L8", size: 8, align: 8, elements: !56)
+!57 = metadata !{ i32 786451, metadata !3, null, metadata !"L8", i32 0, i64 8, i64 8, i32 0, i32 0, null, metadata !56, i32 0, null, null, null }
+; !58 = !DISubrange(upperBound: 1)
+!58 = metadata !{ i32 786465, i64 0, i64 1 }
+; !59 = !DIBasicType(tag: DW_TAG_base_type, name: "signed char", size: 8, align: 8, encoding: DW_ATE_signed_char)
+!59 = metadata !{ i32 786468, null, null, metadata !"signed char", i32 0, i64 8, i64 8, i64 0, i32 0, i32 6 }
+!60 = metadata !{ metadata !58 }
+; !61 = !DICompositeType(tag: DW_TAG_array_type, size: 8, align: 8, baseType: !59, elements: !60)
+!61 = metadata !{ i32 786433, null, null, metadata !"", i32 0, i64 8, i64 8, i32 0, i32 0, metadata !59, metadata !60, i32 0, null, null }
+; !62 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !57, name: "__FILL_CHARARRAY", size: 8, align: 8, baseType: !61)
+!62 = metadata !{ i32 786445, metadata !3, metadata !57, metadata !"__FILL_CHARARRAY", i32 0, i64 8, i64 8, i64 0, i32 0, metadata !61 }
+; !63 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !57)
+!63 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !57 }
+; !64 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !53, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !63)
+!64 = metadata !{ i32 786445, metadata !3, metadata !53, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !63 }
+; !65 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !53, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !26)
+!65 = metadata !{ i32 786445, metadata !3, metadata !53, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !26 }
+; !66 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !53)
+!66 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !53 }
+; !67 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !49, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !66)
+!67 = metadata !{ i32 786445, metadata !3, metadata !49, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !66 }
+; !68 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !49, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !26)
+!68 = metadata !{ i32 786445, metadata !3, metadata !49, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !26 }
+; !69 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !49)
+!69 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !49 }
+; !70 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !45, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !69)
+!70 = metadata !{ i32 786445, metadata !3, metadata !45, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !69 }
+; !71 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !45, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !26)
+!71 = metadata !{ i32 786445, metadata !3, metadata !45, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !26 }
+; !72 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !45)
+!72 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !45 }
+; !73 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !41, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !72)
+!73 = metadata !{ i32 786445, metadata !3, metadata !41, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !72 }
+; !74 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !41, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !26)
+!74 = metadata !{ i32 786445, metadata !3, metadata !41, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !26 }
+; !75 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !41)
+!75 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !41 }
+; !76 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !37, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !75)
+!76 = metadata !{ i32 786445, metadata !3, metadata !37, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !75 }
+; !77 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !37, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !26)
+!77 = metadata !{ i32 786445, metadata !3, metadata !37, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !26 }
+; !78 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !37)
+!78 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !37 }
+; !79 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !33, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !78)
+!79 = metadata !{ i32 786445, metadata !3, metadata !33, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !78 }
+; !80 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !33, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !26)
+!80 = metadata !{ i32 786445, metadata !3, metadata !33, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !26 }
+; !81 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !33)
+!81 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !33 }
+; !82 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !29, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !81)
+!82 = metadata !{ i32 786445, metadata !3, metadata !29, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !81 }
+; !83 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !29, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !26)
+!83 = metadata !{ i32 786445, metadata !3, metadata !29, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !26 }
+; !84 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !29)
+!84 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !29 }
+; !85 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !22, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !84)
+!85 = metadata !{ i32 786445, metadata !3, metadata !22, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !84 }
+; !86 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !22, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !26)
+!86 = metadata !{ i32 786445, metadata !3, metadata !22, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !26 }
+; !87 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !22)
+!87 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !22 }
+; !88 = !MDLocation(line: 210, column: 1, scope: !18)
+!88 = metadata !{ i32 210, i32 1, metadata !18, null }
+!89 = metadata !{ void (i32, %struct.DT1_824*, double)* @_Z21deepcopy_body_192_gpuRN9benchmark5StateE, metadata !"kernel", i32 1 }
+!90 = metadata !{ void (i32, %struct.DT1_824*, double)* @_Z21deepcopy_body_192_gpuRN9benchmark5StateE, metadata !"maxntidx", i32 128, metadata !"maxntidy", i32 1, metadata !"maxntidz", i32 1 }
+!91 = metadata !{ i32 1, i32 2, i32 2, i32 0 }

@@ -1,0 +1,242 @@
+target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v16:16:16-v32:32:32-v64:64:64-v128:128:128-n16:32:64"
+target triple = "nvptx64-unknown"
+; Begin User structs
+%struct.__fcomplex = type {float, float}
+%struct.__dcomplex = type {double, double}
+; End User structs
+
+; Begin module variables
+
+
+; End module variables
+
+define  ptx_kernel void @_Z21deepcopy_body_226_gpuRN9benchmark5StateE(i32 %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym3, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym4, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym5, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym6, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym7, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym8, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym9, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym10, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym11, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym12, double %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14) nounwind {
+_BB_VB0:
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym29_0 = alloca i32
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym30_0 = alloca i32
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym3_p0 = alloca i32
+    store i32 %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym3, i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym3_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym4_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym4, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym4_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym5_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym5, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym5_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym6_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym6, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym6_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym7_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym7, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym7_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym8_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym8, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym8_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym9_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym9, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym9_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym10_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym10, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym10_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym11_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym11, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym11_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym12_p0 = alloca double*
+    store double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym12, double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym12_p0 
+    %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0 = alloca double
+    store double %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14, double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0 
+    br label %_BB_1
+_BB_1:
+
+    br label %_BB_2
+_BB_2:
+    br label %_BB_3
+_BB_3:
+    br label %_BB_4
+_BB_4:
+    br label %_BB_9
+_BB_9:
+    br label %_BB_19
+_BB_19:
+
+    store i32 0, i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym29_0 , !dbg !19
+    br label %_BB_20, !dbg !19
+_BB_20:
+
+    %li18 = call i32 @llvm.nvvm.read.ptx.sreg.ctaid.x( ), !dbg !19
+    %li19 = mul i32 %li18, 128, !dbg !19
+    %li20 = call i32 @llvm.nvvm.read.ptx.sreg.tid.x( ), !dbg !19
+    %li22 = load i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym29_0, !dbg !19
+    %li254 = add i32 %li19, %li20, !dbg !19
+    %li255 = add i32 %li254, %li22, !dbg !19
+    store i32 %li255, i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym30_0 , !dbg !19
+    %li55 = load i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym30_0, !dbg !19
+    %li56 = load i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym3_p0, !dbg !19
+
+    %li182 = add i32 %li56, -1, !dbg !19
+    %li58_0 = icmp sgt i32 %li55, %li182, !dbg !19
+    br i1 %li58_0, label %_BB_26, label %_BBFT_58, !dbg !19
+_BBFT_58:
+    br label %_BB_28, !dbg !19
+_BB_28:
+    %li59 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li60_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym4_p0 to i8**, !dbg !23
+    %li60 = load i8** %li60_0_0, !dbg !23
+    %li62 = load i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym30_0, !dbg !23
+    %li63 = sext i32 %li62 to i64, !dbg !23
+
+    %li65 = mul i64 %li63, 8, !dbg !23
+    %li66 = getelementptr i8* %li60, i64 %li65, !dbg !23
+    %li67_t0 = bitcast i8* %li66 to double*, !dbg !23
+    %li67 = load double* %li67_t0, !dbg !23
+    %li68 = fmul double %li59, %li67, !dbg !23
+    %li69_t0 = bitcast i8* %li66 to double*, !dbg !23
+    store double %li68, double* %li69_t0 , !dbg !23
+    %li71_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym5_p0 to i8**, !dbg !24
+    %li71 = load i8** %li71_0_0, !dbg !24
+    %li77 = getelementptr i8* %li71, i64 %li65, !dbg !24
+    %li78_t0 = bitcast i8* %li77 to double*, !dbg !24
+    %li78 = load double* %li78_t0, !dbg !24
+    %li59_2 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li79 = fmul double %li59_2, %li78, !dbg !23
+    %li80_t0 = bitcast i8* %li77 to double*, !dbg !24
+    store double %li79, double* %li80_t0 , !dbg !24
+    %li82_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym6_p0 to i8**, !dbg !25
+    %li82 = load i8** %li82_0_0, !dbg !25
+    %li88 = getelementptr i8* %li82, i64 %li65, !dbg !25
+    %li89_t0 = bitcast i8* %li88 to double*, !dbg !25
+    %li89 = load double* %li89_t0, !dbg !25
+    %li59_3 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li90 = fmul double %li59_3, %li89, !dbg !23
+    %li91_t0 = bitcast i8* %li88 to double*, !dbg !25
+    store double %li90, double* %li91_t0 , !dbg !25
+    %li93_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym7_p0 to i8**, !dbg !26
+    %li93 = load i8** %li93_0_0, !dbg !26
+    %li99 = getelementptr i8* %li93, i64 %li65, !dbg !26
+    %li100_t0 = bitcast i8* %li99 to double*, !dbg !26
+    %li100 = load double* %li100_t0, !dbg !26
+    %li59_4 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li101 = fmul double %li59_4, %li100, !dbg !23
+    %li102_t0 = bitcast i8* %li99 to double*, !dbg !26
+    store double %li101, double* %li102_t0 , !dbg !26
+    %li104_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym8_p0 to i8**, !dbg !27
+    %li104 = load i8** %li104_0_0, !dbg !27
+    %li110 = getelementptr i8* %li104, i64 %li65, !dbg !27
+    %li111_t0 = bitcast i8* %li110 to double*, !dbg !27
+    %li111 = load double* %li111_t0, !dbg !27
+    %li59_5 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li112 = fmul double %li59_5, %li111, !dbg !23
+    %li113_t0 = bitcast i8* %li110 to double*, !dbg !27
+    store double %li112, double* %li113_t0 , !dbg !27
+    %li115_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym9_p0 to i8**, !dbg !28
+    %li115 = load i8** %li115_0_0, !dbg !28
+    %li121 = getelementptr i8* %li115, i64 %li65, !dbg !28
+    %li122_t0 = bitcast i8* %li121 to double*, !dbg !28
+    %li122 = load double* %li122_t0, !dbg !28
+    %li59_6 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li123 = fmul double %li59_6, %li122, !dbg !23
+    %li124_t0 = bitcast i8* %li121 to double*, !dbg !28
+    store double %li123, double* %li124_t0 , !dbg !28
+    %li126_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym10_p0 to i8**, !dbg !29
+    %li126 = load i8** %li126_0_0, !dbg !29
+    %li132 = getelementptr i8* %li126, i64 %li65, !dbg !29
+    %li133_t0 = bitcast i8* %li132 to double*, !dbg !29
+    %li133 = load double* %li133_t0, !dbg !29
+    %li59_7 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li134 = fmul double %li59_7, %li133, !dbg !23
+    %li135_t0 = bitcast i8* %li132 to double*, !dbg !29
+    store double %li134, double* %li135_t0 , !dbg !29
+    %li137_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym11_p0 to i8**, !dbg !30
+    %li137 = load i8** %li137_0_0, !dbg !30
+    %li143 = getelementptr i8* %li137, i64 %li65, !dbg !30
+    %li144_t0 = bitcast i8* %li143 to double*, !dbg !30
+    %li144 = load double* %li144_t0, !dbg !30
+    %li59_8 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li145 = fmul double %li59_8, %li144, !dbg !23
+    %li146_t0 = bitcast i8* %li143 to double*, !dbg !30
+    store double %li145, double* %li146_t0 , !dbg !30
+    %li148_0_0 = bitcast double** %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym12_p0 to i8**, !dbg !31
+    %li148 = load i8** %li148_0_0, !dbg !31
+    %li154 = getelementptr i8* %li148, i64 %li65, !dbg !31
+    %li155_t0 = bitcast i8* %li154 to double*, !dbg !31
+    %li155 = load double* %li155_t0, !dbg !31
+    %li59_9 = load double* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym14_p0, !dbg !23
+    %li156 = fmul double %li59_9, %li155, !dbg !23
+    %li157_t0 = bitcast i8* %li154 to double*, !dbg !31
+    store double %li156, double* %li157_t0 , !dbg !31
+    br label %_BB_26, !dbg !31
+_BB_26:
+    %li177 = load i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym3_p0, !dbg !19
+    %li159 = call i32 @llvm.nvvm.read.ptx.sreg.nctaid.x( ), !dbg !19
+
+    %li161 = mul i32 %li159, 128, !dbg !19
+    %li163 = load i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym29_0, !dbg !19
+    %li164 = add i32 %li161, %li163, !dbg !19
+    store i32 %li164, i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym29_0 , !dbg !19
+    %li176 = load i32* %_Z21deepcopy_body_226_gpuRN9benchmark5StateE__sym29_0, !dbg !19
+    %li179_0 = icmp slt i32 %li176, %li177, !dbg !19
+    br i1 %li179_0, label %_BB_20, label %_BBFT_179, !dbg !19
+_BBFT_179:
+    br label %_BB_35, !dbg !19
+_BB_35:
+    ret void , !dbg !19
+}
+
+
+declare i32 @llvm.nvvm.read.ptx.sreg.nctaid.x() nounwind
+declare i32 @llvm.nvvm.read.ptx.sreg.tid.x() nounwind
+declare i32 @llvm.nvvm.read.ptx.sreg.ctaid.x() nounwind
+
+; Named metadata
+!llvm.module.flags = !{ !1, !2 }
+!llvm.dbg.cu = !{ !10 }
+!nvvm.annotations = !{ !32, !33 }
+!nvvmir.version = !{ !34 }
+
+; Metadata
+!1 = metadata !{ i32 2, metadata !"Dwarf Version", i32 4 }
+!2 = metadata !{ i32 2, metadata !"Debug Info Version", i32 1 }
+; !3 = !DIFile(filename: "src-googlebench/benchmark-k10-allinit-allused-pc.cpp", directory: "/home/millad/deepcopy-benchmark/simple")
+!3 = metadata !{ metadata !"src-googlebench/benchmark-k10-allinit-allused-pc.cpp", metadata !"/home/millad/deepcopy-benchmark/simple" }
+; !4 = !DIFile(tag: DW_TAG_file_type, pair: !3)
+!4 = metadata !{ i32 786473, metadata !3 }
+!5 = metadata !{  }
+!6 = metadata !{  }
+!7 = metadata !{ metadata !14 }
+!8 = metadata !{  }
+!9 = metadata !{  }
+; !10 = !DICompileUnit(file: !3, language: DW_LANG_C_plus_plus, producer: " PGCC 18.10-0", enums: !5, retainedTypes: !6, subprograms: !7, globals: !8, imports: !9)
+!10 = metadata !{ i32 786449, metadata !3, i32 4, metadata !" PGCC 18.10-0", i1 0, metadata !"", i32 0, metadata !5, metadata !6, metadata !7, metadata !8, metadata !9, metadata !"" }
+!11 = metadata !{ metadata !20, metadata !22, metadata !22, metadata !22, metadata !22, metadata !22, metadata !22, metadata !22, metadata !22, metadata !22, metadata !21 }
+; !12 = !DISubroutineType(types: !11)
+!12 = metadata !{ i32 786453, i32 0, null, metadata !"", i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !11, i32 0, null, null }
+!13 = metadata !{  }
+; !14 = !DISubprogram(file: !3, scope: !4, name: "_Z21deepcopy_body_226_gpuRN9benchmark5StateE", linkageName: "_Z21deepcopy_body_226_gpuRN9benchmark5StateE", line: 226, type: !12, isDefinition: true, function: void (i32, double*, double*, double*, double*, double*, double*, double*, double*, double*, double)* @_Z21deepcopy_body_226_gpuRN9benchmark5StateE, variables: !13, scopeLine: 226)
+!14 = metadata !{ i32 786478, metadata !3, metadata !4, metadata !"_Z21deepcopy_body_226_gpuRN9benchmark5StateE", metadata !"_Z21deepcopy_body_226_gpuRN9benchmark5StateE", metadata !"_Z21deepcopy_body_226_gpuRN9benchmark5StateE", i32 226, metadata !12, i1 0, i1 1, i32 0, i32 0, null, i32 0, i1 0, void (i32, double*, double*, double*, double*, double*, double*, double*, double*, double*, double)* @_Z21deepcopy_body_226_gpuRN9benchmark5StateE, null, null, metadata !13, i32 226 }
+; !15 = !MDLocation(line: 226, column: 1, scope: !14)
+!15 = metadata !{ i32 226, i32 1, metadata !14, null }
+; !16 = !DILexicalBlock(file: !3, scope: !14, line: 226, column: 1)
+!16 = metadata !{ i32 786443, metadata !3, metadata !14, i32 226, i32 1, i32 0 }
+; !17 = !MDLocation(line: 226, column: 1, scope: !16)
+!17 = metadata !{ i32 226, i32 1, metadata !16, null }
+; !18 = !DILexicalBlock(file: !3, scope: !16, line: 258, column: 1)
+!18 = metadata !{ i32 786443, metadata !3, metadata !16, i32 258, i32 1, i32 1 }
+; !19 = !MDLocation(line: 258, column: 1, scope: !18)
+!19 = metadata !{ i32 258, i32 1, metadata !18, null }
+!20 = metadata !{ i32 786491 }
+; !21 = !DIBasicType(tag: DW_TAG_base_type, name: "double", size: 64, align: 64, encoding: DW_ATE_float)
+!21 = metadata !{ i32 786468, null, null, metadata !"double", i32 0, i64 64, i64 64, i64 0, i32 0, i32 4 }
+; !22 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !21)
+!22 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !21 }
+; !23 = !MDLocation(line: 259, column: 1, scope: !18)
+!23 = metadata !{ i32 259, i32 1, metadata !18, null }
+; !24 = !MDLocation(line: 260, column: 1, scope: !18)
+!24 = metadata !{ i32 260, i32 1, metadata !18, null }
+; !25 = !MDLocation(line: 261, column: 1, scope: !18)
+!25 = metadata !{ i32 261, i32 1, metadata !18, null }
+; !26 = !MDLocation(line: 262, column: 1, scope: !18)
+!26 = metadata !{ i32 262, i32 1, metadata !18, null }
+; !27 = !MDLocation(line: 263, column: 1, scope: !18)
+!27 = metadata !{ i32 263, i32 1, metadata !18, null }
+; !28 = !MDLocation(line: 264, column: 1, scope: !18)
+!28 = metadata !{ i32 264, i32 1, metadata !18, null }
+; !29 = !MDLocation(line: 265, column: 1, scope: !18)
+!29 = metadata !{ i32 265, i32 1, metadata !18, null }
+; !30 = !MDLocation(line: 266, column: 1, scope: !18)
+!30 = metadata !{ i32 266, i32 1, metadata !18, null }
+; !31 = !MDLocation(line: 267, column: 1, scope: !18)
+!31 = metadata !{ i32 267, i32 1, metadata !18, null }
+!32 = metadata !{ void (i32, double*, double*, double*, double*, double*, double*, double*, double*, double*, double)* @_Z21deepcopy_body_226_gpuRN9benchmark5StateE, metadata !"kernel", i32 1 }
+!33 = metadata !{ void (i32, double*, double*, double*, double*, double*, double*, double*, double*, double*, double)* @_Z21deepcopy_body_226_gpuRN9benchmark5StateE, metadata !"maxntidx", i32 128, metadata !"maxntidy", i32 1, metadata !"maxntidz", i32 1 }
+!34 = metadata !{ i32 1, i32 2, i32 2, i32 0 }

@@ -1,4 +1,4 @@
-
+#
 BIN = ./bin
 BIN_GOOGLE_BENCH = ./bin-googlebench
 BIN_GOOGLE_BENCH_COMPUTE = ./bin-googlebench-compute
@@ -8,8 +8,11 @@ GOOGLE_BENCH_INCLUDE = $(GOOGLE_BENCH_FOLDER)/include
 GOOGLE_BENCH_LIB = $(GOOGLE_BENCH_FOLDER)/lib
 GOOGLE_BENCH_LIB_FILE = -lbenchmark
 
-UVM_FLAGS = -w -std=c++11 -O3 -mp -acc -ta=tesla:managed,cc70,cc60 -I. -I$(GOOGLE_BENCH_INCLUDE) -L$(GOOGLE_BENCH_LIB)
-WO_UVM_FLAGS = -w -std=c++11 -O3 -mp -acc -ta=tesla:cc70,cc60 -I. -I$(GOOGLE_BENCH_INCLUDE) -L$(GOOGLE_BENCH_LIB)
+# UVM_FLAGS = -w -std=c++11 -O3 -mp -acc -ta=tesla:managed,cc70,cc60 -I. -I$(GOOGLE_BENCH_INCLUDE) -L$(GOOGLE_BENCH_LIB)
+# WO_UVM_FLAGS = -w -std=c++11 -O3 -mp -acc -ta=tesla:cc70,cc60 -I. -I$(GOOGLE_BENCH_INCLUDE) -L$(GOOGLE_BENCH_LIB)
+
+UVM_FLAGS = -w -std=c++11 -O3 -mp -acc -ta=keep,tesla:managed,cc70    -I. -I$(GOOGLE_BENCH_INCLUDE) -L$(GOOGLE_BENCH_LIB)
+WO_UVM_FLAGS = -w -std=c++11 -O3 -mp -acc -ta=keep,tesla:cc70		  -I. -I$(GOOGLE_BENCH_INCLUDE) -L$(GOOGLE_BENCH_LIB)
 
 
 
@@ -91,5 +94,5 @@ $(BIN_GOOGLE_BENCH_COMPUTE)/dense_pointerchain_selective: src-googlebench-comput
 .PHONY: clean 
 
 clean:
-	rm -rf a.out $(BIN) $(BIN_GOOGLE_BENCH) $(BIN_GOOGLE_BENCH_COMPUTE)
+	rm -rf a.out $(BIN) $(BIN_GOOGLE_BENCH) $(BIN_GOOGLE_BENCH_COMPUTE) *.ptx *.bin *.gpu
 

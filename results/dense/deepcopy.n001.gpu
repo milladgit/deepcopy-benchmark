@@ -1,0 +1,1754 @@
+target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v16:16:16-v32:32:32-v64:64:64-v128:128:128-n16:32:64"
+target triple = "nvptx64-unknown"
+; Begin User structs
+%struct.__fcomplex = type {float, float}
+%struct.__dcomplex = type {double, double}
+%struct.DT1_764 = type {double*, i32, %struct.DT1_757*, i32}
+%struct.DT1_757 = type {double*, i32, %struct.DT1_750*, i32}
+%struct.DT1_750 = type {double*, i32, %struct.DT1_743*, i32}
+%struct.DT1_743 = type {double*, i32}
+; End User structs
+
+; Begin module variables
+
+
+; End module variables
+
+define  ptx_kernel void @_Z22do_computation_207_gpuP2L0iid(i32 %_Z22do_computation_207_gpuP2L0iid__sym6, i32 %_Z22do_computation_207_gpuP2L0iid__sym7, i32 %_Z22do_computation_207_gpuP2L0iid__sym8, i32 %_Z22do_computation_207_gpuP2L0iid__sym9, %struct.DT1_764* noalias %_Z22do_computation_207_gpuP2L0iid__sym10, double %_Z22do_computation_207_gpuP2L0iid__sym13) nounwind {
+_BB_VB0:
+    %_Z22do_computation_207_gpuP2L0iid__sym29_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym30_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym31_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym32_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym39_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym40_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym41_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym42_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym46_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym47_0 = alloca i64
+    %_Z22do_computation_207_gpuP2L0iid__sym48_0 = alloca i64
+    %_Z22do_computation_207_gpuP2L0iid__sym49_0 = alloca i64
+    %_Z22do_computation_207_gpuP2L0iid__sym50_0 = alloca i64
+    %_Z22do_computation_207_gpuP2L0iid__sym51_0 = alloca i64
+    %_Z22do_computation_207_gpuP2L0iid__sym52_0 = alloca i64
+    %_Z22do_computation_207_gpuP2L0iid__sym53_0 = alloca i32
+    %_Z22do_computation_207_gpuP2L0iid__sym6_p0 = alloca i32
+    store i32 %_Z22do_computation_207_gpuP2L0iid__sym6, i32* %_Z22do_computation_207_gpuP2L0iid__sym6_p0 
+    %_Z22do_computation_207_gpuP2L0iid__sym7_p0 = alloca i32
+    store i32 %_Z22do_computation_207_gpuP2L0iid__sym7, i32* %_Z22do_computation_207_gpuP2L0iid__sym7_p0 
+    %_Z22do_computation_207_gpuP2L0iid__sym8_p0 = alloca i32
+    store i32 %_Z22do_computation_207_gpuP2L0iid__sym8, i32* %_Z22do_computation_207_gpuP2L0iid__sym8_p0 
+    %_Z22do_computation_207_gpuP2L0iid__sym9_p0 = alloca i32
+    store i32 %_Z22do_computation_207_gpuP2L0iid__sym9, i32* %_Z22do_computation_207_gpuP2L0iid__sym9_p0 
+    %_Z22do_computation_207_gpuP2L0iid__sym10_p0 = alloca %struct.DT1_764*
+    store %struct.DT1_764* %_Z22do_computation_207_gpuP2L0iid__sym10, %struct.DT1_764** %_Z22do_computation_207_gpuP2L0iid__sym10_p0 
+    %_Z22do_computation_207_gpuP2L0iid__sym13_p0 = alloca double
+    store double %_Z22do_computation_207_gpuP2L0iid__sym13, double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0 
+    br label %_BB_1
+_BB_1:
+
+
+    %li358 = call i32 @llvm.nvvm.read.ptx.sreg.nctaid.x( )
+    %li359 = mul i32 %li358, 128
+    store i32 %li359, i32* %_Z22do_computation_207_gpuP2L0iid__sym53_0 
+    %li351 = call i32 @llvm.nvvm.read.ptx.sreg.ctaid.x( )
+    %li353 = mul i32 %li351, 128
+    store i32 %li353, i32* %_Z22do_computation_207_gpuP2L0iid__sym46_0 
+    br label %_BB_2
+_BB_2:
+    br label %_BB_3
+_BB_3:
+    br label %_BB_4
+_BB_4:
+    br label %_BB_9
+_BB_9:
+    br label %_BB_19
+_BB_19:
+
+    store i32 0, i32* %_Z22do_computation_207_gpuP2L0iid__sym39_0 
+    br label %_BB_20
+_BB_20:
+    %li931 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym46_0
+    %li428 = call i32 @llvm.nvvm.read.ptx.sreg.tid.x( )
+    %li430 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym39_0
+    %li745 = add i32 %li428, %li931
+    %li746 = add i32 %li745, %li430
+    store i32 %li746, i32* %_Z22do_computation_207_gpuP2L0iid__sym29_0 , !dbg !19
+
+    %li435 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym9_p0, !dbg !19
+    %li755 = sub i32 %li428, %li435, !dbg !19
+    %li931_2 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym46_0, !dbg !19
+    %li756 = add i32 %li755, %li931_2, !dbg !19
+    %li430_2 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym39_0, !dbg !19
+    %li757 = add i32 %li756, %li430_2, !dbg !19
+    %li758 = add i32 %li757, 1, !dbg !19
+    %li58_0 = icmp sgt i32 %li758, 0, !dbg !19
+    br i1 %li58_0, label %_BB_26, label %_BBFT_58, !dbg !19
+_BBFT_58:
+    br label %_BB_28, !dbg !19
+_BB_28:
+    %li67 = load double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0, !dbg !21
+    %li68_0_0 = bitcast %struct.DT1_764** %_Z22do_computation_207_gpuP2L0iid__sym10_p0 to i8**, !dbg !21
+    %li68 = load i8** %li68_0_0, !dbg !21
+    %li69_t0 = bitcast i8* %li68 to i8**, !dbg !21
+    %li69 = load i8** %li69_t0, !dbg !21
+    %li71 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym29_0, !dbg !21
+    %li72 = sext i32 %li71 to i64, !dbg !21
+    store i64 %li72, i64* %_Z22do_computation_207_gpuP2L0iid__sym47_0 , !dbg !21
+
+    %li959 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym47_0, !dbg !21
+    %li74 = mul i64 %li959, 8, !dbg !21
+    store i64 %li74, i64* %_Z22do_computation_207_gpuP2L0iid__sym48_0 , !dbg !21
+    %li960 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym48_0, !dbg !21
+    %li75 = getelementptr i8* %li69, i64 %li960, !dbg !21
+    %li76_t0 = bitcast i8* %li75 to double*, !dbg !21
+    %li76 = load double* %li76_t0, !dbg !21
+    %li77 = fmul double %li67, %li76, !dbg !21
+    %li78_t0 = bitcast i8* %li75 to double*, !dbg !21
+    store double %li77, double* %li78_t0 , !dbg !21
+
+    store i32 0, i32* %_Z22do_computation_207_gpuP2L0iid__sym30_0 , !dbg !23
+    %li81 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym30_0, !dbg !23
+    %li82 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym8_p0, !dbg !23
+
+    %li253 = add i32 %li82, -1, !dbg !23
+    %li84_0 = icmp sgt i32 %li81, %li253, !dbg !23
+    br i1 %li84_0, label %_BB_26, label %_BBFT_84, !dbg !23
+_BBFT_84:
+    br label %_BB_35, !dbg !23
+_BB_35:
+
+    store i32 0, i32* %_Z22do_computation_207_gpuP2L0iid__sym40_0 , !dbg !23
+    br label %_BB_36, !dbg !23
+_BB_36:
+    %li908_0_0 = bitcast %struct.DT1_764** %_Z22do_computation_207_gpuP2L0iid__sym10_p0 to i8**, !dbg !23
+    %li908 = load i8** %li908_0_0, !dbg !23
+
+    %li910 = getelementptr i8* %li908, i64 16, !dbg !23
+    %li911_t0 = bitcast i8* %li910 to i8**, !dbg !23
+    %li911 = load i8** %li911_t0, !dbg !23
+    %li912 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym30_0, !dbg !23
+    %li913 = sext i32 %li912 to i64, !dbg !23
+    store i64 %li913, i64* %_Z22do_computation_207_gpuP2L0iid__sym49_0 , !dbg !23
+
+    %li961 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym49_0, !dbg !23
+    %li915 = mul i64 %li961, 32, !dbg !23
+    store i64 %li915, i64* %_Z22do_computation_207_gpuP2L0iid__sym50_0 , !dbg !23
+    %li962 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym50_0, !dbg !23
+    %li916 = getelementptr i8* %li911, i64 %li962, !dbg !23
+    %li917_t0 = bitcast i8* %li916 to i8**, !dbg !23
+    %li917 = load i8** %li917_t0, !dbg !23
+    %li921 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym48_0, !dbg !23
+    %li922 = getelementptr i8* %li917, i64 %li921, !dbg !23
+    %li923_t0 = bitcast i8* %li922 to double*, !dbg !23
+    %li923 = load double* %li923_t0, !dbg !23
+    %li924 = load double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0, !dbg !23
+    %li925 = fmul double %li924, %li923, !dbg !23
+    %li121_t0 = bitcast i8* %li922 to double*, !dbg !25
+    store double %li925, double* %li121_t0 , !dbg !25
+
+    store i32 0, i32* %_Z22do_computation_207_gpuP2L0iid__sym31_0 , !dbg !27
+    %li124 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym31_0, !dbg !27
+    %li125 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym7_p0, !dbg !27
+
+    %li255 = add i32 %li125, -1, !dbg !27
+    %li127_0 = icmp sgt i32 %li124, %li255, !dbg !27
+    br i1 %li127_0, label %_BB_48, label %_BBFT_127, !dbg !27
+_BBFT_127:
+    br label %_BB_45, !dbg !27
+_BB_45:
+
+    store i32 0, i32* %_Z22do_computation_207_gpuP2L0iid__sym41_0 , !dbg !27
+    br label %_BB_46, !dbg !27
+_BB_46:
+    %li882_0_0 = bitcast %struct.DT1_764** %_Z22do_computation_207_gpuP2L0iid__sym10_p0 to i8**, !dbg !27
+    %li882 = load i8** %li882_0_0, !dbg !27
+
+    %li884 = getelementptr i8* %li882, i64 16, !dbg !27
+    %li885_t0 = bitcast i8* %li884 to i8**, !dbg !27
+    %li885 = load i8** %li885_t0, !dbg !27
+    %li889 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym50_0, !dbg !27
+    %li890 = getelementptr i8* %li885, i64 %li889, !dbg !27
+    %li892 = getelementptr i8* %li890, i64 16, !dbg !27
+    %li893_t0 = bitcast i8* %li892 to i8**, !dbg !27
+    %li893 = load i8** %li893_t0, !dbg !27
+    %li894 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym31_0, !dbg !27
+    %li895 = sext i32 %li894 to i64, !dbg !27
+    store i64 %li895, i64* %_Z22do_computation_207_gpuP2L0iid__sym51_0 , !dbg !27
+
+    %li963 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym51_0, !dbg !27
+    %li897 = mul i64 %li963, 32, !dbg !27
+    store i64 %li897, i64* %_Z22do_computation_207_gpuP2L0iid__sym52_0 , !dbg !27
+    %li964 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym52_0, !dbg !27
+    %li898 = getelementptr i8* %li893, i64 %li964, !dbg !27
+    %li899_t0 = bitcast i8* %li898 to i8**, !dbg !27
+    %li899 = load i8** %li899_t0, !dbg !27
+    %li903 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym48_0, !dbg !27
+    %li904 = getelementptr i8* %li899, i64 %li903, !dbg !27
+    %li905_t0 = bitcast i8* %li904 to double*, !dbg !27
+    %li905 = load double* %li905_t0, !dbg !27
+    %li906 = load double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0, !dbg !27
+    %li907 = fmul double %li906, %li905, !dbg !27
+    %li173_t0 = bitcast i8* %li904 to double*, !dbg !29
+    store double %li907, double* %li173_t0 , !dbg !29
+
+    store i32 0, i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0 , !dbg !31
+    %li176 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0, !dbg !31
+    %li177 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym6_p0, !dbg !31
+
+    %li257 = add i32 %li177, -1, !dbg !31
+    %li179_0 = icmp sgt i32 %li176, %li257, !dbg !31
+    br i1 %li179_0, label %_BB_58, label %_BBFT_179, !dbg !31
+_BBFT_179:
+    br label %_BB_55, !dbg !31
+_BB_55:
+
+    store i32 0, i32* %_Z22do_computation_207_gpuP2L0iid__sym42_0 , !dbg !31
+    %li456 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym6_p0, !dbg !31
+
+    %li458_0 = icmp slt i32 %li456, 4, !dbg !31
+    br i1 %li458_0, label %_BB_56, label %_BBFT_458, !dbg !31
+_BBFT_458:
+    br label %_BB_12, !dbg !31
+_BB_12:
+    br label %_BB_11, !dbg !31
+_BB_11:
+    %li833_0_0 = bitcast %struct.DT1_764** %_Z22do_computation_207_gpuP2L0iid__sym10_p0 to i8**, !dbg !31
+    %li833 = load i8** %li833_0_0, !dbg !31
+
+    %li835 = getelementptr i8* %li833, i64 16, !dbg !31
+    %li836_t0 = bitcast i8* %li835 to i8**, !dbg !31
+    %li836 = load i8** %li836_t0, !dbg !31
+    %li840 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym50_0, !dbg !31
+    %li841 = getelementptr i8* %li836, i64 %li840, !dbg !31
+    %li843 = getelementptr i8* %li841, i64 16, !dbg !31
+    %li844_t0 = bitcast i8* %li843 to i8**, !dbg !31
+    %li844 = load i8** %li844_t0, !dbg !31
+    %li848 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym52_0, !dbg !31
+    %li849 = getelementptr i8* %li844, i64 %li848, !dbg !31
+    %li851 = getelementptr i8* %li849, i64 16, !dbg !31
+    %li852_t0 = bitcast i8* %li851 to i8**, !dbg !31
+    %li852 = load i8** %li852_t0, !dbg !31
+    %li853 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0, !dbg !31
+    %li854 = sext i32 %li853 to i64, !dbg !31
+
+    %li856 = mul i64 %li854, 16, !dbg !31
+    %li857 = getelementptr i8* %li852, i64 %li856, !dbg !31
+    %li858_t0 = bitcast i8* %li857 to i8**, !dbg !31
+    %li858 = load i8** %li858_t0, !dbg !31
+    %li862 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym48_0, !dbg !31
+    %li863 = getelementptr i8* %li858, i64 %li862, !dbg !31
+    %li864_t0 = bitcast i8* %li863 to double*, !dbg !31
+    %li864 = load double* %li864_t0, !dbg !31
+    %li865 = load double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0, !dbg !31
+    %li866 = fmul double %li865, %li864, !dbg !31
+
+    %li853_2 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0, !dbg !31
+    %li868 = add i32 %li853_2, 1, !dbg !31
+    %li869 = sext i32 %li868 to i64, !dbg !31
+    %li871 = mul i64 %li869, 16, !dbg !31
+
+    %li853_3 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0, !dbg !31
+    %li873 = add i32 %li853_3, 2, !dbg !31
+    %li874 = sext i32 %li873 to i64, !dbg !31
+    %li876 = mul i64 %li874, 16, !dbg !31
+
+    %li853_4 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0, !dbg !31
+    %li878 = add i32 %li853_4, 3, !dbg !31
+    %li879 = sext i32 %li878 to i64, !dbg !31
+    %li881 = mul i64 %li879, 16, !dbg !31
+    %li493_t0 = bitcast i8* %li863 to double*, !dbg !31
+    store double %li866, double* %li493_t0 , !dbg !31
+    %li509_t0 = bitcast i8* %li835 to i8**, !dbg !31
+    %li509 = load i8** %li509_t0, !dbg !31
+    %li511 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym30_0, !dbg !31
+    %li512 = sext i32 %li511 to i64, !dbg !31
+
+    %li514 = mul i64 %li512, 32, !dbg !31
+    %li765 = getelementptr i8* %li509, i64 %li514, !dbg !31
+    %li766 = getelementptr i8* %li765, i64 16, !dbg !31
+    %li517_t0 = bitcast i8* %li766 to i8**, !dbg !31
+    %li517 = load i8** %li517_t0, !dbg !31
+    %li519 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym31_0, !dbg !31
+    %li520 = sext i32 %li519 to i64, !dbg !31
+    %li522 = mul i64 %li520, 32, !dbg !31
+    %li767 = getelementptr i8* %li517, i64 %li522, !dbg !31
+    %li768 = getelementptr i8* %li767, i64 16, !dbg !31
+    %li525_t0 = bitcast i8* %li768 to i8**, !dbg !31
+    %li525 = load i8** %li525_t0, !dbg !31
+    %li532 = getelementptr i8* %li525, i64 %li871, !dbg !31
+    %li533_t0 = bitcast i8* %li532 to i8**, !dbg !31
+    %li533 = load i8** %li533_t0, !dbg !31
+    %li534 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym29_0, !dbg !31
+    %li535 = sext i32 %li534 to i64, !dbg !31
+
+    %li537 = mul i64 %li535, 8, !dbg !31
+    %li538 = getelementptr i8* %li533, i64 %li537, !dbg !31
+    %li539_t0 = bitcast i8* %li538 to double*, !dbg !31
+    %li539 = load double* %li539_t0, !dbg !31
+    %li865_2 = load double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0, !dbg !31
+    %li540 = fmul double %li865_2, %li539, !dbg !31
+    %li541_t0 = bitcast i8* %li538 to double*, !dbg !31
+    store double %li540, double* %li541_t0 , !dbg !31
+    %li561_t0 = bitcast i8* %li835 to i8**, !dbg !31
+    %li561 = load i8** %li561_t0, !dbg !31
+    %li769 = getelementptr i8* %li561, i64 %li514, !dbg !31
+    %li770 = getelementptr i8* %li769, i64 16, !dbg !31
+    %li569_t0 = bitcast i8* %li770 to i8**, !dbg !31
+    %li569 = load i8** %li569_t0, !dbg !31
+    %li771 = getelementptr i8* %li569, i64 %li522, !dbg !31
+    %li772 = getelementptr i8* %li771, i64 16, !dbg !31
+    %li577_t0 = bitcast i8* %li772 to i8**, !dbg !31
+    %li577 = load i8** %li577_t0, !dbg !31
+    %li584 = getelementptr i8* %li577, i64 %li876, !dbg !31
+    %li585_t0 = bitcast i8* %li584 to i8**, !dbg !31
+    %li585 = load i8** %li585_t0, !dbg !31
+    %li590 = getelementptr i8* %li585, i64 %li537, !dbg !31
+    %li591_t0 = bitcast i8* %li590 to double*, !dbg !31
+    %li591 = load double* %li591_t0, !dbg !31
+    %li865_3 = load double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0, !dbg !31
+    %li592 = fmul double %li865_3, %li591, !dbg !31
+    %li593_t0 = bitcast i8* %li590 to double*, !dbg !31
+    store double %li592, double* %li593_t0 , !dbg !31
+    %li613_t0 = bitcast i8* %li835 to i8**, !dbg !31
+    %li613 = load i8** %li613_t0, !dbg !31
+    %li773 = getelementptr i8* %li613, i64 %li514, !dbg !31
+    %li774 = getelementptr i8* %li773, i64 16, !dbg !31
+    %li621_t0 = bitcast i8* %li774 to i8**, !dbg !31
+    %li621 = load i8** %li621_t0, !dbg !31
+    %li775 = getelementptr i8* %li621, i64 %li522, !dbg !31
+    %li776 = getelementptr i8* %li775, i64 16, !dbg !31
+    %li629_t0 = bitcast i8* %li776 to i8**, !dbg !31
+    %li629 = load i8** %li629_t0, !dbg !31
+    %li636 = getelementptr i8* %li629, i64 %li881, !dbg !31
+    %li637_t0 = bitcast i8* %li636 to i8**, !dbg !31
+    %li637 = load i8** %li637_t0, !dbg !31
+    %li642 = getelementptr i8* %li637, i64 %li537, !dbg !31
+    %li643_t0 = bitcast i8* %li642 to double*, !dbg !31
+    %li643 = load double* %li643_t0, !dbg !31
+    %li865_4 = load double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0, !dbg !31
+    %li644 = fmul double %li865_4, %li643, !dbg !31
+    %li645_t0 = bitcast i8* %li642 to double*, !dbg !31
+    store double %li644, double* %li645_t0 , !dbg !31
+
+    %li853_5 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0, !dbg !31
+    %li663 = add i32 %li853_5, 4, !dbg !31
+    store i32 %li663, i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0 , !dbg !31
+    %li666 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym42_0, !dbg !31
+    %li667 = add i32 %li666, 4, !dbg !31
+    store i32 %li667, i32* %_Z22do_computation_207_gpuP2L0iid__sym42_0 , !dbg !31
+    %li669 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym42_0, !dbg !31
+    %li670 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym6_p0, !dbg !31
+    %li779 = sub i32 %li669, %li670, !dbg !31
+    %li780 = add i32 %li779, 3, !dbg !31
+    %li672_0 = icmp slt i32 %li780, 0, !dbg !31
+    br i1 %li672_0, label %_BB_11, label %_BBFT_672, !dbg !31
+_BBFT_672:
+    br label %_BB_60, !dbg !31
+_BB_60:
+    %li675 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym42_0, !dbg !31
+    %li676 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym6_p0, !dbg !31
+    %li677 = sub i32 %li675, %li676, !dbg !31
+    %li678_0 = icmp sge i32 %li677, 0, !dbg !31
+    br i1 %li678_0, label %_BB_58, label %_BBFT_678, !dbg !31
+_BBFT_678:
+    br label %_BB_7, !dbg !31
+_BB_7:
+    br label %_BB_56, !dbg !31
+_BB_56:
+    %li799_0_0 = bitcast %struct.DT1_764** %_Z22do_computation_207_gpuP2L0iid__sym10_p0 to i8**, !dbg !31
+    %li799 = load i8** %li799_0_0, !dbg !31
+
+    %li801 = getelementptr i8* %li799, i64 16, !dbg !31
+    %li802_t0 = bitcast i8* %li801 to i8**, !dbg !31
+    %li802 = load i8** %li802_t0, !dbg !31
+    %li806 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym50_0, !dbg !31
+    %li807 = getelementptr i8* %li802, i64 %li806, !dbg !31
+    %li809 = getelementptr i8* %li807, i64 16, !dbg !31
+    %li810_t0 = bitcast i8* %li809 to i8**, !dbg !31
+    %li810 = load i8** %li810_t0, !dbg !31
+    %li814 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym52_0, !dbg !31
+    %li815 = getelementptr i8* %li810, i64 %li814, !dbg !31
+    %li817 = getelementptr i8* %li815, i64 16, !dbg !31
+    %li818_t0 = bitcast i8* %li817 to i8**, !dbg !31
+    %li818 = load i8** %li818_t0, !dbg !31
+    %li819 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0, !dbg !31
+    %li820 = sext i32 %li819 to i64, !dbg !31
+
+    %li822 = mul i64 %li820, 16, !dbg !31
+    %li823 = getelementptr i8* %li818, i64 %li822, !dbg !31
+    %li824_t0 = bitcast i8* %li823 to i8**, !dbg !31
+    %li824 = load i8** %li824_t0, !dbg !31
+    %li828 = load i64* %_Z22do_computation_207_gpuP2L0iid__sym48_0, !dbg !31
+    %li829 = getelementptr i8* %li824, i64 %li828, !dbg !31
+    %li830_t0 = bitcast i8* %li829 to double*, !dbg !31
+    %li830 = load double* %li830_t0, !dbg !31
+    %li831 = load double* %_Z22do_computation_207_gpuP2L0iid__sym13_p0, !dbg !31
+    %li832 = fmul double %li831, %li830, !dbg !31
+    %li226_t0 = bitcast i8* %li829 to double*, !dbg !62
+    store double %li832, double* %li226_t0 , !dbg !62
+
+    %li819_2 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0, !dbg !31
+    %li182 = add i32 1, %li819_2, !dbg !31
+    store i32 %li182, i32* %_Z22do_computation_207_gpuP2L0iid__sym32_0 , !dbg !31
+    %li402 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym42_0, !dbg !31
+    %li403 = add i32 %li402, 1, !dbg !31
+    store i32 %li403, i32* %_Z22do_computation_207_gpuP2L0iid__sym42_0 , !dbg !31
+    %li440 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym42_0, !dbg !31
+    %li441 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym6_p0, !dbg !31
+    %li443 = sub i32 %li440, %li441, !dbg !31
+    %li187_0 = icmp slt i32 %li443, 0, !dbg !31
+    br i1 %li187_0, label %_BB_56, label %_BBFT_187, !dbg !31
+_BBFT_187:
+    br label %_BB_21, !dbg !31
+_BB_21:
+    br label %_BB_74, !dbg !31
+_BB_74:
+    br label %_BB_58, !dbg !31
+_BB_58:
+
+    %li137 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym31_0, !dbg !27
+    %li138 = add i32 1, %li137, !dbg !27
+    store i32 %li138, i32* %_Z22do_computation_207_gpuP2L0iid__sym31_0 , !dbg !27
+    %li408 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym41_0, !dbg !27
+    %li409 = add i32 %li408, 1, !dbg !27
+    store i32 %li409, i32* %_Z22do_computation_207_gpuP2L0iid__sym41_0 , !dbg !27
+    %li444 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym41_0, !dbg !27
+    %li445 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym7_p0, !dbg !27
+    %li447 = sub i32 %li444, %li445, !dbg !27
+    %li143_0 = icmp slt i32 %li447, 0, !dbg !27
+    br i1 %li143_0, label %_BB_46, label %_BBFT_143, !dbg !27
+_BBFT_143:
+    br label %_BB_73, !dbg !27
+_BB_73:
+    br label %_BB_48, !dbg !27
+_BB_48:
+
+    %li94 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym30_0, !dbg !23
+    %li95 = add i32 1, %li94, !dbg !23
+    store i32 %li95, i32* %_Z22do_computation_207_gpuP2L0iid__sym30_0 , !dbg !23
+    %li414 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym40_0, !dbg !23
+    %li415 = add i32 %li414, 1, !dbg !23
+    store i32 %li415, i32* %_Z22do_computation_207_gpuP2L0iid__sym40_0 , !dbg !23
+    %li448 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym40_0, !dbg !23
+    %li449 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym8_p0, !dbg !23
+    %li451 = sub i32 %li448, %li449, !dbg !23
+    %li100_0 = icmp slt i32 %li451, 0, !dbg !23
+    br i1 %li100_0, label %_BB_36, label %_BBFT_100, !dbg !23
+_BBFT_100:
+    br label %_BB_72, !dbg !23
+_BB_72:
+    br label %_BB_38, !dbg !23
+_BB_38:
+    br label %_BB_26, !dbg !23
+_BB_26:
+    %li798 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym53_0, !dbg !23
+    %li420 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym39_0, !dbg !23
+    %li421 = add i32 %li420, %li798, !dbg !23
+    store i32 %li421, i32* %_Z22do_computation_207_gpuP2L0iid__sym39_0 , !dbg !23
+    %li452 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym39_0, !dbg !23
+    %li453 = load i32* %_Z22do_computation_207_gpuP2L0iid__sym9_p0, !dbg !23
+    %li455 = sub i32 %li452, %li453, !dbg !23
+    %li248_0 = icmp slt i32 %li455, 0, !dbg !63
+    br i1 %li248_0, label %_BB_20, label %_BBFT_248, !dbg !63
+_BBFT_248:
+    br label %_BB_71, !dbg !63
+_BB_71:
+    ret void , !dbg !63
+}
+
+define  ptx_kernel void @_Z24do_computation_2_228_gpuP2L0iid(i32 %_Z24do_computation_2_228_gpuP2L0iid__sym3, %struct.DT1_764* noalias %_Z24do_computation_2_228_gpuP2L0iid__sym4, double %_Z24do_computation_2_228_gpuP2L0iid__sym6) nounwind {
+_BB_VB0:
+    %_Z24do_computation_2_228_gpuP2L0iid__sym21_0 = alloca i32
+    %_Z24do_computation_2_228_gpuP2L0iid__sym22_0 = alloca i32
+    %_Z24do_computation_2_228_gpuP2L0iid__sym3_p0 = alloca i32
+    store i32 %_Z24do_computation_2_228_gpuP2L0iid__sym3, i32* %_Z24do_computation_2_228_gpuP2L0iid__sym3_p0 
+    %_Z24do_computation_2_228_gpuP2L0iid__sym4_p0 = alloca %struct.DT1_764*
+    store %struct.DT1_764* %_Z24do_computation_2_228_gpuP2L0iid__sym4, %struct.DT1_764** %_Z24do_computation_2_228_gpuP2L0iid__sym4_p0 
+    %_Z24do_computation_2_228_gpuP2L0iid__sym6_p0 = alloca double
+    store double %_Z24do_computation_2_228_gpuP2L0iid__sym6, double* %_Z24do_computation_2_228_gpuP2L0iid__sym6_p0 
+    br label %_BB_1
+_BB_1:
+
+    br label %_BB_2
+_BB_2:
+    br label %_BB_3
+_BB_3:
+    br label %_BB_4
+_BB_4:
+    br label %_BB_9
+_BB_9:
+    br label %_BB_19
+_BB_19:
+
+    store i32 0, i32* %_Z24do_computation_2_228_gpuP2L0iid__sym21_0 , !dbg !72
+    br label %_BB_20, !dbg !72
+_BB_20:
+
+    %li18 = call i32 @llvm.nvvm.read.ptx.sreg.ctaid.x( ), !dbg !72
+    %li19 = mul i32 %li18, 128, !dbg !72
+    %li20 = call i32 @llvm.nvvm.read.ptx.sreg.tid.x( ), !dbg !72
+    %li22 = load i32* %_Z24do_computation_2_228_gpuP2L0iid__sym21_0, !dbg !72
+    %li159 = add i32 %li19, %li20, !dbg !72
+    %li160 = add i32 %li159, %li22, !dbg !72
+    store i32 %li160, i32* %_Z24do_computation_2_228_gpuP2L0iid__sym22_0 , !dbg !72
+    %li55 = load i32* %_Z24do_computation_2_228_gpuP2L0iid__sym22_0, !dbg !72
+    %li56 = load i32* %_Z24do_computation_2_228_gpuP2L0iid__sym3_p0, !dbg !72
+
+    %li95 = add i32 %li56, -1, !dbg !72
+    %li58_0 = icmp sgt i32 %li55, %li95, !dbg !72
+    br i1 %li58_0, label %_BB_26, label %_BBFT_58, !dbg !72
+_BBFT_58:
+    br label %_BB_28, !dbg !72
+_BB_28:
+    %li59 = load double* %_Z24do_computation_2_228_gpuP2L0iid__sym6_p0, !dbg !99
+    %li60_0_0 = bitcast %struct.DT1_764** %_Z24do_computation_2_228_gpuP2L0iid__sym4_p0 to i8**, !dbg !99
+    %li60 = load i8** %li60_0_0, !dbg !99
+    %li61_t0 = bitcast i8* %li60 to i8**, !dbg !99
+    %li61 = load i8** %li61_t0, !dbg !99
+    %li63 = load i32* %_Z24do_computation_2_228_gpuP2L0iid__sym22_0, !dbg !99
+    %li64 = sext i32 %li63 to i64, !dbg !99
+
+    %li66 = mul i64 %li64, 8, !dbg !99
+    %li67 = getelementptr i8* %li61, i64 %li66, !dbg !99
+    %li68_t0 = bitcast i8* %li67 to double*, !dbg !99
+    %li68 = load double* %li68_t0, !dbg !99
+    %li69 = fmul double %li59, %li68, !dbg !99
+    %li70_t0 = bitcast i8* %li67 to double*, !dbg !99
+    store double %li69, double* %li70_t0 , !dbg !99
+    br label %_BB_26, !dbg !99
+_BB_26:
+    %li90 = load i32* %_Z24do_computation_2_228_gpuP2L0iid__sym3_p0, !dbg !72
+    %li72 = call i32 @llvm.nvvm.read.ptx.sreg.nctaid.x( ), !dbg !72
+
+    %li74 = mul i32 %li72, 128, !dbg !72
+    %li76 = load i32* %_Z24do_computation_2_228_gpuP2L0iid__sym21_0, !dbg !72
+    %li77 = add i32 %li74, %li76, !dbg !72
+    store i32 %li77, i32* %_Z24do_computation_2_228_gpuP2L0iid__sym21_0 , !dbg !72
+    %li89 = load i32* %_Z24do_computation_2_228_gpuP2L0iid__sym21_0, !dbg !72
+    %li92_0 = icmp slt i32 %li89, %li90, !dbg !72
+    br i1 %li92_0, label %_BB_20, label %_BBFT_92, !dbg !72
+_BBFT_92:
+    br label %_BB_35, !dbg !72
+_BB_35:
+    ret void , !dbg !72
+}
+
+define  ptx_kernel void @_Z24do_computation_2_231_gpuP2L0iid(i32 %_Z24do_computation_2_231_gpuP2L0iid__sym4, i32 %_Z24do_computation_2_231_gpuP2L0iid__sym5, %struct.DT1_764* noalias %_Z24do_computation_2_231_gpuP2L0iid__sym6, double %_Z24do_computation_2_231_gpuP2L0iid__sym9) nounwind {
+_BB_VB0:
+    %_Z24do_computation_2_231_gpuP2L0iid__sym25_0 = alloca i32
+    %_Z24do_computation_2_231_gpuP2L0iid__sym26_0 = alloca i32
+    %_Z24do_computation_2_231_gpuP2L0iid__sym27_0 = alloca i32
+    %_Z24do_computation_2_231_gpuP2L0iid__sym34_0 = alloca i32
+    %_Z24do_computation_2_231_gpuP2L0iid__sym4_p0 = alloca i32
+    store i32 %_Z24do_computation_2_231_gpuP2L0iid__sym4, i32* %_Z24do_computation_2_231_gpuP2L0iid__sym4_p0 
+    %_Z24do_computation_2_231_gpuP2L0iid__sym5_p0 = alloca i32
+    store i32 %_Z24do_computation_2_231_gpuP2L0iid__sym5, i32* %_Z24do_computation_2_231_gpuP2L0iid__sym5_p0 
+    %_Z24do_computation_2_231_gpuP2L0iid__sym6_p0 = alloca %struct.DT1_764*
+    store %struct.DT1_764* %_Z24do_computation_2_231_gpuP2L0iid__sym6, %struct.DT1_764** %_Z24do_computation_2_231_gpuP2L0iid__sym6_p0 
+    %_Z24do_computation_2_231_gpuP2L0iid__sym9_p0 = alloca double
+    store double %_Z24do_computation_2_231_gpuP2L0iid__sym9, double* %_Z24do_computation_2_231_gpuP2L0iid__sym9_p0 
+    br label %_BB_1
+_BB_1:
+
+    br label %_BB_2
+_BB_2:
+    br label %_BB_3
+_BB_3:
+    br label %_BB_4
+_BB_4:
+    br label %_BB_9
+_BB_9:
+    br label %_BB_19
+_BB_19:
+
+    store i32 0, i32* %_Z24do_computation_2_231_gpuP2L0iid__sym34_0 
+    br label %_BB_20
+_BB_20:
+    %li184 = call i32 @llvm.nvvm.read.ptx.sreg.ctaid.x( )
+    %li185 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym34_0
+    %li13 = add i32 %li184, %li185, !dbg !110
+    store i32 %li13, i32* %_Z24do_computation_2_231_gpuP2L0iid__sym25_0 , !dbg !110
+
+    %li188 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym5_p0, !dbg !110
+    %li223 = sub i32 %li184, %li188, !dbg !110
+    %li185_2 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym34_0, !dbg !110
+    %li224 = add i32 %li223, %li185_2, !dbg !110
+    %li225 = add i32 %li224, 1, !dbg !110
+    %li28_0 = icmp sgt i32 %li225, 0, !dbg !110
+    br i1 %li28_0, label %_BB_26, label %_BBFT_28, !dbg !110
+_BBFT_28:
+    br label %_BB_24, !dbg !110
+_BB_24:
+    br label %_BB_32, !dbg !110
+_BB_32:
+
+    store i32 0, i32* %_Z24do_computation_2_231_gpuP2L0iid__sym26_0 , !dbg !112
+    br label %_BB_33, !dbg !112
+_BB_33:
+    %li41 = call i32 @llvm.nvvm.read.ptx.sreg.tid.x( ), !dbg !112
+    %li42 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym26_0, !dbg !112
+    %li43 = add i32 %li41, %li42, !dbg !112
+    store i32 %li43, i32* %_Z24do_computation_2_231_gpuP2L0iid__sym27_0 , !dbg !112
+    %li49 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym27_0, !dbg !112
+    %li50 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym4_p0, !dbg !112
+
+    %li109 = add i32 %li50, -1, !dbg !112
+    %li52_0 = icmp sgt i32 %li49, %li109, !dbg !112
+    br i1 %li52_0, label %_BB_36, label %_BBFT_52, !dbg !112
+_BBFT_52:
+    br label %_BB_38, !dbg !112
+_BB_38:
+    %li53 = load double* %_Z24do_computation_2_231_gpuP2L0iid__sym9_p0, !dbg !139
+    %li54_0_0 = bitcast %struct.DT1_764** %_Z24do_computation_2_231_gpuP2L0iid__sym6_p0 to i8**, !dbg !139
+    %li54 = load i8** %li54_0_0, !dbg !139
+
+    %li56 = getelementptr i8* %li54, i64 16, !dbg !139
+    %li57_t0 = bitcast i8* %li56 to i8**, !dbg !139
+    %li57 = load i8** %li57_t0, !dbg !139
+    %li59 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym25_0, !dbg !139
+    %li60 = sext i32 %li59 to i64, !dbg !139
+
+    %li62 = mul i64 %li60, 32, !dbg !139
+    %li63 = getelementptr i8* %li57, i64 %li62, !dbg !139
+    %li64_t0 = bitcast i8* %li63 to i8**, !dbg !139
+    %li64 = load i8** %li64_t0, !dbg !139
+    %li66 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym27_0, !dbg !139
+    %li67 = sext i32 %li66 to i64, !dbg !139
+
+    %li69 = mul i64 %li67, 8, !dbg !139
+    %li70 = getelementptr i8* %li64, i64 %li69, !dbg !139
+    %li71_t0 = bitcast i8* %li70 to double*, !dbg !139
+    %li71 = load double* %li71_t0, !dbg !139
+    %li72 = fmul double %li53, %li71, !dbg !139
+    %li73_t0 = bitcast i8* %li70 to double*, !dbg !139
+    store double %li72, double* %li73_t0 , !dbg !139
+    br label %_BB_36, !dbg !139
+_BB_36:
+    %li87 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym4_p0, !dbg !112
+
+    %li79 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym26_0, !dbg !112
+    %li80 = add i32 128, %li79, !dbg !112
+    store i32 %li80, i32* %_Z24do_computation_2_231_gpuP2L0iid__sym26_0 , !dbg !112
+    %li86 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym26_0, !dbg !112
+    %li89_0 = icmp slt i32 %li86, %li87, !dbg !112
+    br i1 %li89_0, label %_BB_33, label %_BBFT_89, !dbg !112
+_BBFT_89:
+    br label %_BB_43, !dbg !112
+_BB_43:
+    br label %_BB_26, !dbg !112
+_BB_26:
+    %li180 = call i32 @llvm.nvvm.read.ptx.sreg.nctaid.x( ), !dbg !112
+    %li181 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym34_0, !dbg !112
+    %li182 = add i32 %li181, %li180, !dbg !112
+    store i32 %li182, i32* %_Z24do_computation_2_231_gpuP2L0iid__sym34_0 , !dbg !112
+    %li193 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym34_0, !dbg !112
+    %li194 = load i32* %_Z24do_computation_2_231_gpuP2L0iid__sym5_p0, !dbg !112
+    %li196 = sub i32 %li193, %li194, !dbg !112
+    %li104_0 = icmp slt i32 %li196, 0, !dbg !139
+    br i1 %li104_0, label %_BB_20, label %_BBFT_104, !dbg !139
+_BBFT_104:
+    br label %_BB_47, !dbg !139
+_BB_47:
+    ret void , !dbg !139
+}
+
+define  ptx_kernel void @_Z24do_computation_2_236_gpuP2L0iid(i32 %_Z24do_computation_2_236_gpuP2L0iid__sym5, i32 %_Z24do_computation_2_236_gpuP2L0iid__sym6, i32 %_Z24do_computation_2_236_gpuP2L0iid__sym7, %struct.DT1_764* noalias %_Z24do_computation_2_236_gpuP2L0iid__sym8, double %_Z24do_computation_2_236_gpuP2L0iid__sym11) nounwind {
+_BB_VB0:
+    %_Z24do_computation_2_236_gpuP2L0iid__sym27_0 = alloca i32
+    %_Z24do_computation_2_236_gpuP2L0iid__sym29_0 = alloca i32
+    %_Z24do_computation_2_236_gpuP2L0iid__sym30_0 = alloca i32
+    %_Z24do_computation_2_236_gpuP2L0iid__sym34_0 = alloca i32
+    %_Z24do_computation_2_236_gpuP2L0iid__sym35_0 = alloca i32
+    %_Z24do_computation_2_236_gpuP2L0iid__sym36_0 = alloca i32
+    %_Z24do_computation_2_236_gpuP2L0iid__sym5_p0 = alloca i32
+    store i32 %_Z24do_computation_2_236_gpuP2L0iid__sym5, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym5_p0 
+    %_Z24do_computation_2_236_gpuP2L0iid__sym6_p0 = alloca i32
+    store i32 %_Z24do_computation_2_236_gpuP2L0iid__sym6, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym6_p0 
+    %_Z24do_computation_2_236_gpuP2L0iid__sym7_p0 = alloca i32
+    store i32 %_Z24do_computation_2_236_gpuP2L0iid__sym7, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym7_p0 
+    %_Z24do_computation_2_236_gpuP2L0iid__sym8_p0 = alloca %struct.DT1_764*
+    store %struct.DT1_764* %_Z24do_computation_2_236_gpuP2L0iid__sym8, %struct.DT1_764** %_Z24do_computation_2_236_gpuP2L0iid__sym8_p0 
+    %_Z24do_computation_2_236_gpuP2L0iid__sym11_p0 = alloca double
+    store double %_Z24do_computation_2_236_gpuP2L0iid__sym11, double* %_Z24do_computation_2_236_gpuP2L0iid__sym11_p0 
+    br label %_BB_1
+_BB_1:
+
+    br label %_BB_2
+_BB_2:
+    br label %_BB_3
+_BB_3:
+    br label %_BB_4
+_BB_4:
+    br label %_BB_9
+_BB_9:
+    br label %_BB_19
+_BB_19:
+
+    store i32 0, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym34_0 
+    br label %_BB_20
+_BB_20:
+    %li243 = call i32 @llvm.nvvm.read.ptx.sreg.ctaid.x( )
+    %li244 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym34_0
+    %li13 = add i32 %li243, %li244, !dbg !150
+    store i32 %li13, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym27_0 , !dbg !150
+
+    %li247 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym7_p0, !dbg !150
+    %li508 = sub i32 %li243, %li247, !dbg !150
+    %li244_2 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym34_0, !dbg !150
+    %li509 = add i32 %li508, %li244_2, !dbg !150
+    %li510 = add i32 %li509, 1, !dbg !150
+    %li28_0 = icmp sgt i32 %li510, 0, !dbg !150
+    br i1 %li28_0, label %_BB_26, label %_BBFT_28, !dbg !150
+_BBFT_28:
+    br label %_BB_24, !dbg !150
+_BB_24:
+    br label %_BB_32, !dbg !150
+_BB_32:
+
+    store i32 0, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym35_0 , !dbg !150
+    br label %_BB_33, !dbg !150
+_BB_33:
+    %li252 = call i32 @llvm.nvvm.read.ptx.sreg.tid.x( ), !dbg !150
+    %li253 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym35_0, !dbg !150
+    %li43 = add i32 %li252, %li253, !dbg !156
+    store i32 %li43, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym29_0 , !dbg !156
+
+    %li256 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym5_p0, !dbg !156
+    %li516 = sub i32 %li252, %li256, !dbg !156
+    %li253_2 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym35_0, !dbg !156
+    %li517 = add i32 %li516, %li253_2, !dbg !156
+    %li518 = add i32 %li517, 1, !dbg !156
+    %li52_0 = icmp sgt i32 %li518, 0, !dbg !156
+    br i1 %li52_0, label %_BB_36, label %_BBFT_52, !dbg !156
+_BBFT_52:
+    br label %_BB_38, !dbg !156
+_BB_38:
+
+    store i32 0, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0 , !dbg !154
+    %li55 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0, !dbg !154
+    %li56 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym6_p0, !dbg !154
+
+    %li135 = add i32 %li56, -1, !dbg !154
+    %li58_0 = icmp sgt i32 %li55, %li135, !dbg !154
+    br i1 %li58_0, label %_BB_36, label %_BBFT_58, !dbg !154
+_BBFT_58:
+    br label %_BB_40, !dbg !154
+_BB_40:
+
+    store i32 0, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym36_0 , !dbg !154
+    %li273 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym6_p0, !dbg !154
+
+    %li275_0 = icmp slt i32 %li273, 4, !dbg !154
+    br i1 %li275_0, label %_BB_41, label %_BBFT_275, !dbg !154
+_BBFT_275:
+    br label %_BB_12, !dbg !154
+_BB_12:
+    br label %_BB_11, !dbg !154
+_BB_11:
+    %li563_0_0 = bitcast %struct.DT1_764** %_Z24do_computation_2_236_gpuP2L0iid__sym8_p0 to i8**, !dbg !154
+    %li563 = load i8** %li563_0_0, !dbg !154
+
+    %li565 = getelementptr i8* %li563, i64 16, !dbg !154
+    %li566_t0 = bitcast i8* %li565 to i8**, !dbg !154
+    %li566 = load i8** %li566_t0, !dbg !154
+    %li567 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym27_0, !dbg !154
+    %li568 = sext i32 %li567 to i64, !dbg !154
+
+    %li570 = mul i64 %li568, 32, !dbg !154
+    %li571 = getelementptr i8* %li566, i64 %li570, !dbg !154
+    %li573 = getelementptr i8* %li571, i64 16, !dbg !154
+    %li574_t0 = bitcast i8* %li573 to i8**, !dbg !154
+    %li574 = load i8** %li574_t0, !dbg !154
+    %li575 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0, !dbg !154
+    %li576 = sext i32 %li575 to i64, !dbg !154
+    %li578 = mul i64 %li576, 32, !dbg !154
+    %li579 = getelementptr i8* %li574, i64 %li578, !dbg !154
+    %li580_t0 = bitcast i8* %li579 to i8**, !dbg !154
+    %li580 = load i8** %li580_t0, !dbg !154
+    %li581 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym29_0, !dbg !154
+    %li582 = sext i32 %li581 to i64, !dbg !154
+
+    %li584 = mul i64 %li582, 8, !dbg !154
+    %li585 = getelementptr i8* %li580, i64 %li584, !dbg !154
+    %li586_t0 = bitcast i8* %li585 to double*, !dbg !154
+    %li586 = load double* %li586_t0, !dbg !154
+    %li587 = load double* %_Z24do_computation_2_236_gpuP2L0iid__sym11_p0, !dbg !154
+    %li588 = fmul double %li587, %li586, !dbg !154
+
+    %li575_2 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0, !dbg !154
+    %li590 = add i32 %li575_2, 1, !dbg !154
+    %li591 = sext i32 %li590 to i64, !dbg !154
+    %li593 = mul i64 %li591, 32, !dbg !154
+
+    %li575_3 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0, !dbg !154
+    %li595 = add i32 %li575_3, 2, !dbg !154
+    %li596 = sext i32 %li595 to i64, !dbg !154
+    %li598 = mul i64 %li596, 32, !dbg !154
+
+    %li575_4 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0, !dbg !154
+    %li600 = add i32 %li575_4, 3, !dbg !154
+    %li601 = sext i32 %li600 to i64, !dbg !154
+    %li603 = mul i64 %li601, 32, !dbg !154
+    %li302_t0 = bitcast i8* %li585 to double*, !dbg !154
+    store double %li588, double* %li302_t0 , !dbg !154
+    %li318_t0 = bitcast i8* %li565 to i8**, !dbg !154
+    %li318 = load i8** %li318_t0, !dbg !154
+    %li521 = getelementptr i8* %li318, i64 %li570, !dbg !154
+    %li522 = getelementptr i8* %li521, i64 16, !dbg !154
+    %li326_t0 = bitcast i8* %li522 to i8**, !dbg !154
+    %li326 = load i8** %li326_t0, !dbg !154
+    %li333 = getelementptr i8* %li326, i64 %li593, !dbg !154
+    %li334_t0 = bitcast i8* %li333 to i8**, !dbg !154
+    %li334 = load i8** %li334_t0, !dbg !154
+    %li339 = getelementptr i8* %li334, i64 %li584, !dbg !154
+    %li340_t0 = bitcast i8* %li339 to double*, !dbg !154
+    %li340 = load double* %li340_t0, !dbg !154
+    %li587_2 = load double* %_Z24do_computation_2_236_gpuP2L0iid__sym11_p0, !dbg !154
+    %li341 = fmul double %li587_2, %li340, !dbg !154
+    %li342_t0 = bitcast i8* %li339 to double*, !dbg !154
+    store double %li341, double* %li342_t0 , !dbg !154
+    %li362_t0 = bitcast i8* %li565 to i8**, !dbg !154
+    %li362 = load i8** %li362_t0, !dbg !154
+    %li523 = getelementptr i8* %li362, i64 %li570, !dbg !154
+    %li524 = getelementptr i8* %li523, i64 16, !dbg !154
+    %li370_t0 = bitcast i8* %li524 to i8**, !dbg !154
+    %li370 = load i8** %li370_t0, !dbg !154
+    %li377 = getelementptr i8* %li370, i64 %li598, !dbg !154
+    %li378_t0 = bitcast i8* %li377 to i8**, !dbg !154
+    %li378 = load i8** %li378_t0, !dbg !154
+    %li383 = getelementptr i8* %li378, i64 %li584, !dbg !154
+    %li384_t0 = bitcast i8* %li383 to double*, !dbg !154
+    %li384 = load double* %li384_t0, !dbg !154
+    %li587_3 = load double* %_Z24do_computation_2_236_gpuP2L0iid__sym11_p0, !dbg !154
+    %li385 = fmul double %li587_3, %li384, !dbg !154
+    %li386_t0 = bitcast i8* %li383 to double*, !dbg !154
+    store double %li385, double* %li386_t0 , !dbg !154
+    %li406_t0 = bitcast i8* %li565 to i8**, !dbg !154
+    %li406 = load i8** %li406_t0, !dbg !154
+    %li525 = getelementptr i8* %li406, i64 %li570, !dbg !154
+    %li526 = getelementptr i8* %li525, i64 16, !dbg !154
+    %li414_t0 = bitcast i8* %li526 to i8**, !dbg !154
+    %li414 = load i8** %li414_t0, !dbg !154
+    %li421 = getelementptr i8* %li414, i64 %li603, !dbg !154
+    %li422_t0 = bitcast i8* %li421 to i8**, !dbg !154
+    %li422 = load i8** %li422_t0, !dbg !154
+    %li427 = getelementptr i8* %li422, i64 %li584, !dbg !154
+    %li428_t0 = bitcast i8* %li427 to double*, !dbg !154
+    %li428 = load double* %li428_t0, !dbg !154
+    %li587_4 = load double* %_Z24do_computation_2_236_gpuP2L0iid__sym11_p0, !dbg !154
+    %li429 = fmul double %li587_4, %li428, !dbg !154
+    %li430_t0 = bitcast i8* %li427 to double*, !dbg !154
+    store double %li429, double* %li430_t0 , !dbg !154
+
+    %li575_5 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0, !dbg !154
+    %li448 = add i32 %li575_5, 4, !dbg !154
+    store i32 %li448, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0 , !dbg !154
+    %li451 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym36_0, !dbg !154
+    %li452 = add i32 %li451, 4, !dbg !154
+    store i32 %li452, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym36_0 , !dbg !154
+    %li454 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym36_0, !dbg !154
+    %li455 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym6_p0, !dbg !154
+    %li529 = sub i32 %li454, %li455, !dbg !154
+    %li530 = add i32 %li529, 3, !dbg !154
+    %li457_0 = icmp slt i32 %li530, 0, !dbg !154
+    br i1 %li457_0, label %_BB_11, label %_BBFT_457, !dbg !154
+_BBFT_457:
+    br label %_BB_47, !dbg !154
+_BB_47:
+    %li460 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym36_0, !dbg !154
+    %li461 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym6_p0, !dbg !154
+    %li462 = sub i32 %li460, %li461, !dbg !154
+    %li463_0 = icmp sge i32 %li462, 0, !dbg !154
+    br i1 %li463_0, label %_BB_36, label %_BBFT_463, !dbg !154
+_BBFT_463:
+    br label %_BB_7, !dbg !154
+_BB_7:
+    br label %_BB_41, !dbg !154
+_BB_41:
+    %li537_0_0 = bitcast %struct.DT1_764** %_Z24do_computation_2_236_gpuP2L0iid__sym8_p0 to i8**, !dbg !154
+    %li537 = load i8** %li537_0_0, !dbg !154
+
+    %li539 = getelementptr i8* %li537, i64 16, !dbg !154
+    %li540_t0 = bitcast i8* %li539 to i8**, !dbg !154
+    %li540 = load i8** %li540_t0, !dbg !154
+    %li541 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym27_0, !dbg !154
+    %li542 = sext i32 %li541 to i64, !dbg !154
+
+    %li544 = mul i64 %li542, 32, !dbg !154
+    %li545 = getelementptr i8* %li540, i64 %li544, !dbg !154
+    %li547 = getelementptr i8* %li545, i64 16, !dbg !154
+    %li548_t0 = bitcast i8* %li547 to i8**, !dbg !154
+    %li548 = load i8** %li548_t0, !dbg !154
+    %li549 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0, !dbg !154
+    %li550 = sext i32 %li549 to i64, !dbg !154
+    %li552 = mul i64 %li550, 32, !dbg !154
+    %li553 = getelementptr i8* %li548, i64 %li552, !dbg !154
+    %li554_t0 = bitcast i8* %li553 to i8**, !dbg !154
+    %li554 = load i8** %li554_t0, !dbg !154
+    %li555 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym29_0, !dbg !154
+    %li556 = sext i32 %li555 to i64, !dbg !154
+
+    %li558 = mul i64 %li556, 8, !dbg !154
+    %li559 = getelementptr i8* %li554, i64 %li558, !dbg !154
+    %li560_t0 = bitcast i8* %li559 to double*, !dbg !154
+    %li560 = load double* %li560_t0, !dbg !154
+    %li561 = load double* %_Z24do_computation_2_236_gpuP2L0iid__sym11_p0, !dbg !154
+    %li562 = fmul double %li561, %li560, !dbg !154
+    %li97_t0 = bitcast i8* %li559 to double*, !dbg !183
+    store double %li562, double* %li97_t0 , !dbg !183
+
+    %li549_2 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0, !dbg !154
+    %li62 = add i32 1, %li549_2, !dbg !154
+    store i32 %li62, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym30_0 , !dbg !154
+    %li228 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym36_0, !dbg !154
+    %li229 = add i32 %li228, 1, !dbg !154
+    store i32 %li229, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym36_0 , !dbg !154
+    %li261 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym36_0, !dbg !154
+    %li262 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym6_p0, !dbg !154
+    %li264 = sub i32 %li261, %li262, !dbg !154
+    %li67_0 = icmp slt i32 %li264, 0, !dbg !154
+    br i1 %li67_0, label %_BB_41, label %_BBFT_67, !dbg !154
+_BBFT_67:
+    br label %_BB_21, !dbg !154
+_BB_21:
+    br label %_BB_60, !dbg !154
+_BB_60:
+    br label %_BB_43, !dbg !154
+_BB_43:
+    br label %_BB_36, !dbg !154
+_BB_36:
+
+    %li234 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym35_0, !dbg !154
+    %li235 = add i32 %li234, 128, !dbg !154
+    store i32 %li235, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym35_0 , !dbg !154
+    %li265 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym35_0, !dbg !154
+    %li266 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym5_p0, !dbg !154
+    %li268 = sub i32 %li265, %li266, !dbg !154
+    %li113_0 = icmp slt i32 %li268, 0, !dbg !156
+    br i1 %li113_0, label %_BB_33, label %_BBFT_113, !dbg !156
+_BBFT_113:
+    br label %_BB_55, !dbg !156
+_BB_55:
+    br label %_BB_26, !dbg !156
+_BB_26:
+    %li239 = call i32 @llvm.nvvm.read.ptx.sreg.nctaid.x( ), !dbg !156
+    %li240 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym34_0, !dbg !156
+    %li241 = add i32 %li240, %li239, !dbg !156
+    store i32 %li241, i32* %_Z24do_computation_2_236_gpuP2L0iid__sym34_0 , !dbg !156
+    %li269 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym34_0, !dbg !156
+    %li270 = load i32* %_Z24do_computation_2_236_gpuP2L0iid__sym7_p0, !dbg !156
+    %li272 = sub i32 %li269, %li270, !dbg !156
+    %li128_0 = icmp slt i32 %li272, 0, !dbg !183
+    br i1 %li128_0, label %_BB_20, label %_BBFT_128, !dbg !183
+_BBFT_128:
+    br label %_BB_59, !dbg !183
+_BB_59:
+    ret void , !dbg !183
+}
+
+define  ptx_kernel void @_Z24do_computation_2_242_gpuP2L0iid(i32 %_Z24do_computation_2_242_gpuP2L0iid__sym6, i32 %_Z24do_computation_2_242_gpuP2L0iid__sym7, i32 %_Z24do_computation_2_242_gpuP2L0iid__sym8, i32 %_Z24do_computation_2_242_gpuP2L0iid__sym9, %struct.DT1_764* noalias %_Z24do_computation_2_242_gpuP2L0iid__sym10, double %_Z24do_computation_2_242_gpuP2L0iid__sym13) nounwind {
+_BB_VB0:
+    %_Z24do_computation_2_242_gpuP2L0iid__sym29_0 = alloca i32
+    %_Z24do_computation_2_242_gpuP2L0iid__sym31_0 = alloca i32
+    %_Z24do_computation_2_242_gpuP2L0iid__sym32_0 = alloca i32
+    %_Z24do_computation_2_242_gpuP2L0iid__sym33_0 = alloca i32
+    %_Z24do_computation_2_242_gpuP2L0iid__sym37_0 = alloca i32
+    %_Z24do_computation_2_242_gpuP2L0iid__sym38_0 = alloca i32
+    %_Z24do_computation_2_242_gpuP2L0iid__sym39_0 = alloca i32
+    %_Z24do_computation_2_242_gpuP2L0iid__sym40_0 = alloca i32
+    %_Z24do_computation_2_242_gpuP2L0iid__sym6_p0 = alloca i32
+    store i32 %_Z24do_computation_2_242_gpuP2L0iid__sym6, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym6_p0 
+    %_Z24do_computation_2_242_gpuP2L0iid__sym7_p0 = alloca i32
+    store i32 %_Z24do_computation_2_242_gpuP2L0iid__sym7, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym7_p0 
+    %_Z24do_computation_2_242_gpuP2L0iid__sym8_p0 = alloca i32
+    store i32 %_Z24do_computation_2_242_gpuP2L0iid__sym8, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym8_p0 
+    %_Z24do_computation_2_242_gpuP2L0iid__sym9_p0 = alloca i32
+    store i32 %_Z24do_computation_2_242_gpuP2L0iid__sym9, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym9_p0 
+    %_Z24do_computation_2_242_gpuP2L0iid__sym10_p0 = alloca %struct.DT1_764*
+    store %struct.DT1_764* %_Z24do_computation_2_242_gpuP2L0iid__sym10, %struct.DT1_764** %_Z24do_computation_2_242_gpuP2L0iid__sym10_p0 
+    %_Z24do_computation_2_242_gpuP2L0iid__sym13_p0 = alloca double
+    store double %_Z24do_computation_2_242_gpuP2L0iid__sym13, double* %_Z24do_computation_2_242_gpuP2L0iid__sym13_p0 
+    br label %_BB_1
+_BB_1:
+
+    br label %_BB_2
+_BB_2:
+    br label %_BB_3
+_BB_3:
+    br label %_BB_4
+_BB_4:
+    br label %_BB_9
+_BB_9:
+    br label %_BB_19
+_BB_19:
+
+    store i32 0, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym37_0 
+    br label %_BB_20
+_BB_20:
+    %li310 = call i32 @llvm.nvvm.read.ptx.sreg.ctaid.x( )
+    %li311 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym37_0
+    %li13 = add i32 %li310, %li311, !dbg !194
+    store i32 %li13, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym29_0 , !dbg !194
+
+    %li314 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym9_p0, !dbg !194
+    %li635 = sub i32 %li310, %li314, !dbg !194
+    %li311_2 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym37_0, !dbg !194
+    %li636 = add i32 %li635, %li311_2, !dbg !194
+    %li637 = add i32 %li636, 1, !dbg !194
+    %li28_0 = icmp sgt i32 %li637, 0, !dbg !194
+    br i1 %li28_0, label %_BB_26, label %_BBFT_28, !dbg !194
+_BBFT_28:
+    br label %_BB_24, !dbg !194
+_BB_24:
+    br label %_BB_32, !dbg !194
+_BB_32:
+
+    store i32 0, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym38_0 , !dbg !194
+    br label %_BB_33, !dbg !194
+_BB_33:
+    %li319 = call i32 @llvm.nvvm.read.ptx.sreg.tid.x( ), !dbg !194
+    %li320 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym38_0, !dbg !194
+    %li43 = add i32 %li319, %li320, !dbg !204
+    store i32 %li43, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym31_0 , !dbg !204
+
+    %li323 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym6_p0, !dbg !204
+    %li643 = sub i32 %li319, %li323, !dbg !204
+    %li320_2 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym38_0, !dbg !204
+    %li644 = add i32 %li643, %li320_2, !dbg !204
+    %li645 = add i32 %li644, 1, !dbg !204
+    %li52_0 = icmp sgt i32 %li645, 0, !dbg !204
+    br i1 %li52_0, label %_BB_36, label %_BBFT_52, !dbg !204
+_BBFT_52:
+    br label %_BB_38, !dbg !204
+_BB_38:
+
+    store i32 0, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym32_0 , !dbg !198
+    %li55 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym32_0, !dbg !198
+    %li56 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym8_p0, !dbg !198
+
+    %li159 = add i32 %li56, -1, !dbg !198
+    %li58_0 = icmp sgt i32 %li55, %li159, !dbg !198
+    br i1 %li58_0, label %_BB_36, label %_BBFT_58, !dbg !198
+_BBFT_58:
+    br label %_BB_40, !dbg !198
+_BB_40:
+
+    store i32 0, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym39_0 , !dbg !198
+    br label %_BB_41, !dbg !198
+_BB_41:
+
+    store i32 0, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0 , !dbg !202
+    %li70 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0, !dbg !202
+    %li71 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym7_p0, !dbg !202
+
+    %li161 = add i32 %li71, -1, !dbg !202
+    %li73_0 = icmp sgt i32 %li70, %li161, !dbg !202
+    br i1 %li73_0, label %_BB_53, label %_BBFT_73, !dbg !202
+_BBFT_73:
+    br label %_BB_50, !dbg !202
+_BB_50:
+
+    store i32 0, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym40_0 , !dbg !202
+    %li344 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym7_p0, !dbg !202
+
+    %li346_0 = icmp slt i32 %li344, 4, !dbg !202
+    br i1 %li346_0, label %_BB_51, label %_BBFT_346, !dbg !202
+_BBFT_346:
+    br label %_BB_12, !dbg !202
+_BB_12:
+    br label %_BB_11, !dbg !202
+_BB_11:
+    %li709_0_0 = bitcast %struct.DT1_764** %_Z24do_computation_2_242_gpuP2L0iid__sym10_p0 to i8**, !dbg !202
+    %li709 = load i8** %li709_0_0, !dbg !202
+
+    %li711 = getelementptr i8* %li709, i64 16, !dbg !202
+    %li712_t0 = bitcast i8* %li711 to i8**, !dbg !202
+    %li712 = load i8** %li712_t0, !dbg !202
+    %li713 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym29_0, !dbg !202
+    %li714 = sext i32 %li713 to i64, !dbg !202
+
+    %li716 = mul i64 %li714, 32, !dbg !202
+    %li717 = getelementptr i8* %li712, i64 %li716, !dbg !202
+    %li719 = getelementptr i8* %li717, i64 16, !dbg !202
+    %li720_t0 = bitcast i8* %li719 to i8**, !dbg !202
+    %li720 = load i8** %li720_t0, !dbg !202
+    %li721 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym32_0, !dbg !202
+    %li722 = sext i32 %li721 to i64, !dbg !202
+    %li724 = mul i64 %li722, 32, !dbg !202
+    %li725 = getelementptr i8* %li720, i64 %li724, !dbg !202
+    %li727 = getelementptr i8* %li725, i64 16, !dbg !202
+    %li728_t0 = bitcast i8* %li727 to i8**, !dbg !202
+    %li728 = load i8** %li728_t0, !dbg !202
+    %li729 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0, !dbg !202
+    %li730 = sext i32 %li729 to i64, !dbg !202
+
+    %li732 = mul i64 %li730, 16, !dbg !202
+    %li733 = getelementptr i8* %li728, i64 %li732, !dbg !202
+    %li734_t0 = bitcast i8* %li733 to i8**, !dbg !202
+    %li734 = load i8** %li734_t0, !dbg !202
+    %li735 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym31_0, !dbg !202
+    %li736 = sext i32 %li735 to i64, !dbg !202
+
+    %li738 = mul i64 %li736, 8, !dbg !202
+    %li739 = getelementptr i8* %li734, i64 %li738, !dbg !202
+    %li740_t0 = bitcast i8* %li739 to double*, !dbg !202
+    %li740 = load double* %li740_t0, !dbg !202
+    %li741 = load double* %_Z24do_computation_2_242_gpuP2L0iid__sym13_p0, !dbg !202
+    %li742 = fmul double %li741, %li740, !dbg !202
+
+    %li729_2 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0, !dbg !202
+    %li744 = add i32 %li729_2, 1, !dbg !202
+    %li745 = sext i32 %li744 to i64, !dbg !202
+    %li747 = mul i64 %li745, 16, !dbg !202
+
+    %li729_3 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0, !dbg !202
+    %li749 = add i32 %li729_3, 2, !dbg !202
+    %li750 = sext i32 %li749 to i64, !dbg !202
+    %li752 = mul i64 %li750, 16, !dbg !202
+
+    %li729_4 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0, !dbg !202
+    %li754 = add i32 %li729_4, 3, !dbg !202
+    %li755 = sext i32 %li754 to i64, !dbg !202
+    %li757 = mul i64 %li755, 16, !dbg !202
+    %li381_t0 = bitcast i8* %li739 to double*, !dbg !202
+    store double %li742, double* %li381_t0 , !dbg !202
+    %li397_t0 = bitcast i8* %li711 to i8**, !dbg !202
+    %li397 = load i8** %li397_t0, !dbg !202
+    %li650 = getelementptr i8* %li397, i64 %li716, !dbg !202
+    %li651 = getelementptr i8* %li650, i64 16, !dbg !202
+    %li405_t0 = bitcast i8* %li651 to i8**, !dbg !202
+    %li405 = load i8** %li405_t0, !dbg !202
+    %li652 = getelementptr i8* %li405, i64 %li724, !dbg !202
+    %li653 = getelementptr i8* %li652, i64 16, !dbg !202
+    %li413_t0 = bitcast i8* %li653 to i8**, !dbg !202
+    %li413 = load i8** %li413_t0, !dbg !202
+    %li420 = getelementptr i8* %li413, i64 %li747, !dbg !202
+    %li421_t0 = bitcast i8* %li420 to i8**, !dbg !202
+    %li421 = load i8** %li421_t0, !dbg !202
+    %li426 = getelementptr i8* %li421, i64 %li738, !dbg !202
+    %li427_t0 = bitcast i8* %li426 to double*, !dbg !202
+    %li427 = load double* %li427_t0, !dbg !202
+    %li741_2 = load double* %_Z24do_computation_2_242_gpuP2L0iid__sym13_p0, !dbg !202
+    %li428 = fmul double %li741_2, %li427, !dbg !202
+    %li429_t0 = bitcast i8* %li426 to double*, !dbg !202
+    store double %li428, double* %li429_t0 , !dbg !202
+    %li449_t0 = bitcast i8* %li711 to i8**, !dbg !202
+    %li449 = load i8** %li449_t0, !dbg !202
+    %li654 = getelementptr i8* %li449, i64 %li716, !dbg !202
+    %li655 = getelementptr i8* %li654, i64 16, !dbg !202
+    %li457_t0 = bitcast i8* %li655 to i8**, !dbg !202
+    %li457 = load i8** %li457_t0, !dbg !202
+    %li656 = getelementptr i8* %li457, i64 %li724, !dbg !202
+    %li657 = getelementptr i8* %li656, i64 16, !dbg !202
+    %li465_t0 = bitcast i8* %li657 to i8**, !dbg !202
+    %li465 = load i8** %li465_t0, !dbg !202
+    %li472 = getelementptr i8* %li465, i64 %li752, !dbg !202
+    %li473_t0 = bitcast i8* %li472 to i8**, !dbg !202
+    %li473 = load i8** %li473_t0, !dbg !202
+    %li478 = getelementptr i8* %li473, i64 %li738, !dbg !202
+    %li479_t0 = bitcast i8* %li478 to double*, !dbg !202
+    %li479 = load double* %li479_t0, !dbg !202
+    %li741_3 = load double* %_Z24do_computation_2_242_gpuP2L0iid__sym13_p0, !dbg !202
+    %li480 = fmul double %li741_3, %li479, !dbg !202
+    %li481_t0 = bitcast i8* %li478 to double*, !dbg !202
+    store double %li480, double* %li481_t0 , !dbg !202
+    %li501_t0 = bitcast i8* %li711 to i8**, !dbg !202
+    %li501 = load i8** %li501_t0, !dbg !202
+    %li658 = getelementptr i8* %li501, i64 %li716, !dbg !202
+    %li659 = getelementptr i8* %li658, i64 16, !dbg !202
+    %li509_t0 = bitcast i8* %li659 to i8**, !dbg !202
+    %li509 = load i8** %li509_t0, !dbg !202
+    %li660 = getelementptr i8* %li509, i64 %li724, !dbg !202
+    %li661 = getelementptr i8* %li660, i64 16, !dbg !202
+    %li517_t0 = bitcast i8* %li661 to i8**, !dbg !202
+    %li517 = load i8** %li517_t0, !dbg !202
+    %li524 = getelementptr i8* %li517, i64 %li757, !dbg !202
+    %li525_t0 = bitcast i8* %li524 to i8**, !dbg !202
+    %li525 = load i8** %li525_t0, !dbg !202
+    %li530 = getelementptr i8* %li525, i64 %li738, !dbg !202
+    %li531_t0 = bitcast i8* %li530 to double*, !dbg !202
+    %li531 = load double* %li531_t0, !dbg !202
+    %li741_4 = load double* %_Z24do_computation_2_242_gpuP2L0iid__sym13_p0, !dbg !202
+    %li532 = fmul double %li741_4, %li531, !dbg !202
+    %li533_t0 = bitcast i8* %li530 to double*, !dbg !202
+    store double %li532, double* %li533_t0 , !dbg !202
+
+    %li729_5 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0, !dbg !202
+    %li551 = add i32 %li729_5, 4, !dbg !202
+    store i32 %li551, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0 , !dbg !202
+    %li554 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym40_0, !dbg !202
+    %li555 = add i32 %li554, 4, !dbg !202
+    store i32 %li555, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym40_0 , !dbg !202
+    %li557 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym40_0, !dbg !202
+    %li558 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym7_p0, !dbg !202
+    %li664 = sub i32 %li557, %li558, !dbg !202
+    %li665 = add i32 %li664, 3, !dbg !202
+    %li560_0 = icmp slt i32 %li665, 0, !dbg !202
+    br i1 %li560_0, label %_BB_11, label %_BBFT_560, !dbg !202
+_BBFT_560:
+    br label %_BB_60, !dbg !202
+_BB_60:
+    %li563 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym40_0, !dbg !202
+    %li564 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym7_p0, !dbg !202
+    %li565 = sub i32 %li563, %li564, !dbg !202
+    %li566_0 = icmp sge i32 %li565, 0, !dbg !202
+    br i1 %li566_0, label %_BB_53, label %_BBFT_566, !dbg !202
+_BBFT_566:
+    br label %_BB_7, !dbg !202
+_BB_7:
+    br label %_BB_51, !dbg !202
+_BB_51:
+    %li675_0_0 = bitcast %struct.DT1_764** %_Z24do_computation_2_242_gpuP2L0iid__sym10_p0 to i8**, !dbg !202
+    %li675 = load i8** %li675_0_0, !dbg !202
+
+    %li677 = getelementptr i8* %li675, i64 16, !dbg !202
+    %li678_t0 = bitcast i8* %li677 to i8**, !dbg !202
+    %li678 = load i8** %li678_t0, !dbg !202
+    %li679 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym29_0, !dbg !202
+    %li680 = sext i32 %li679 to i64, !dbg !202
+
+    %li682 = mul i64 %li680, 32, !dbg !202
+    %li683 = getelementptr i8* %li678, i64 %li682, !dbg !202
+    %li685 = getelementptr i8* %li683, i64 16, !dbg !202
+    %li686_t0 = bitcast i8* %li685 to i8**, !dbg !202
+    %li686 = load i8** %li686_t0, !dbg !202
+    %li687 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym32_0, !dbg !202
+    %li688 = sext i32 %li687 to i64, !dbg !202
+    %li690 = mul i64 %li688, 32, !dbg !202
+    %li691 = getelementptr i8* %li686, i64 %li690, !dbg !202
+    %li693 = getelementptr i8* %li691, i64 16, !dbg !202
+    %li694_t0 = bitcast i8* %li693 to i8**, !dbg !202
+    %li694 = load i8** %li694_t0, !dbg !202
+    %li695 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0, !dbg !202
+    %li696 = sext i32 %li695 to i64, !dbg !202
+
+    %li698 = mul i64 %li696, 16, !dbg !202
+    %li699 = getelementptr i8* %li694, i64 %li698, !dbg !202
+    %li700_t0 = bitcast i8* %li699 to i8**, !dbg !202
+    %li700 = load i8** %li700_t0, !dbg !202
+    %li701 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym31_0, !dbg !202
+    %li702 = sext i32 %li701 to i64, !dbg !202
+
+    %li704 = mul i64 %li702, 8, !dbg !202
+    %li705 = getelementptr i8* %li700, i64 %li704, !dbg !202
+    %li706_t0 = bitcast i8* %li705 to double*, !dbg !202
+    %li706 = load double* %li706_t0, !dbg !202
+    %li707 = load double* %_Z24do_computation_2_242_gpuP2L0iid__sym13_p0, !dbg !202
+    %li708 = fmul double %li707, %li706, !dbg !202
+    %li121_t0 = bitcast i8* %li705 to double*, !dbg !231
+    store double %li708, double* %li121_t0 , !dbg !231
+
+    %li695_2 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0, !dbg !202
+    %li77 = add i32 1, %li695_2, !dbg !202
+    store i32 %li77, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym33_0 , !dbg !202
+    %li289 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym40_0, !dbg !202
+    %li290 = add i32 %li289, 1, !dbg !202
+    store i32 %li290, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym40_0 , !dbg !202
+    %li328 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym40_0, !dbg !202
+    %li329 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym7_p0, !dbg !202
+    %li331 = sub i32 %li328, %li329, !dbg !202
+    %li82_0 = icmp slt i32 %li331, 0, !dbg !202
+    br i1 %li82_0, label %_BB_51, label %_BBFT_82, !dbg !202
+_BBFT_82:
+    br label %_BB_21, !dbg !202
+_BB_21:
+    br label %_BB_73, !dbg !202
+_BB_73:
+    br label %_BB_53, !dbg !202
+_BB_53:
+
+    %li61 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym32_0, !dbg !198
+    %li62 = add i32 1, %li61, !dbg !198
+    store i32 %li62, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym32_0 , !dbg !198
+    %li295 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym39_0, !dbg !198
+    %li296 = add i32 %li295, 1, !dbg !198
+    store i32 %li296, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym39_0 , !dbg !198
+    %li332 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym39_0, !dbg !198
+    %li333 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym8_p0, !dbg !198
+    %li335 = sub i32 %li332, %li333, !dbg !198
+    %li67_0 = icmp slt i32 %li335, 0, !dbg !198
+    br i1 %li67_0, label %_BB_41, label %_BBFT_67, !dbg !198
+_BBFT_67:
+    br label %_BB_72, !dbg !198
+_BB_72:
+    br label %_BB_43, !dbg !198
+_BB_43:
+    br label %_BB_36, !dbg !198
+_BB_36:
+
+    %li301 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym38_0, !dbg !198
+    %li302 = add i32 %li301, 128, !dbg !198
+    store i32 %li302, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym38_0 , !dbg !198
+    %li336 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym38_0, !dbg !198
+    %li337 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym6_p0, !dbg !198
+    %li339 = sub i32 %li336, %li337, !dbg !198
+    %li137_0 = icmp slt i32 %li339, 0, !dbg !204
+    br i1 %li137_0, label %_BB_33, label %_BBFT_137, !dbg !204
+_BBFT_137:
+    br label %_BB_67, !dbg !204
+_BB_67:
+    br label %_BB_26, !dbg !204
+_BB_26:
+    %li306 = call i32 @llvm.nvvm.read.ptx.sreg.nctaid.x( ), !dbg !204
+    %li307 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym37_0, !dbg !204
+    %li308 = add i32 %li307, %li306, !dbg !204
+    store i32 %li308, i32* %_Z24do_computation_2_242_gpuP2L0iid__sym37_0 , !dbg !204
+    %li340 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym37_0, !dbg !204
+    %li341 = load i32* %_Z24do_computation_2_242_gpuP2L0iid__sym9_p0, !dbg !204
+    %li343 = sub i32 %li340, %li341, !dbg !204
+    %li152_0 = icmp slt i32 %li343, 0, !dbg !231
+    br i1 %li152_0, label %_BB_20, label %_BBFT_152, !dbg !231
+_BBFT_152:
+    br label %_BB_71, !dbg !231
+_BB_71:
+    ret void , !dbg !231
+}
+
+
+declare i32 @llvm.nvvm.read.ptx.sreg.tid.x() nounwind
+declare i32 @llvm.nvvm.read.ptx.sreg.ctaid.x() nounwind
+declare i32 @llvm.nvvm.read.ptx.sreg.nctaid.x() nounwind
+
+; Named metadata
+!llvm.module.flags = !{ !1, !2 }
+!llvm.dbg.cu = !{ !10 }
+!nvvm.annotations = !{ !232, !233, !234, !235, !236, !237, !238, !239, !240, !241 }
+!nvvmir.version = !{ !242 }
+
+; Metadata
+!1 = metadata !{ i32 2, metadata !"Dwarf Version", i32 4 }
+!2 = metadata !{ i32 2, metadata !"Debug Info Version", i32 1 }
+; !3 = !DIFile(filename: "src-googlebench/deepcopy.cpp", directory: "/home/millad/deepcopy-benchmark/dense")
+!3 = metadata !{ metadata !"src-googlebench/deepcopy.cpp", metadata !"/home/millad/deepcopy-benchmark/dense" }
+; !4 = !DIFile(tag: DW_TAG_file_type, pair: !3)
+!4 = metadata !{ i32 786473, metadata !3 }
+!5 = metadata !{  }
+!6 = metadata !{  }
+!7 = metadata !{ metadata !14, metadata !67, metadata !103, metadata !143, metadata !187 }
+!8 = metadata !{  }
+!9 = metadata !{  }
+; !10 = !DICompileUnit(file: !3, language: DW_LANG_C_plus_plus, producer: " PGCC 18.10-0", enums: !5, retainedTypes: !6, subprograms: !7, globals: !8, imports: !9)
+!10 = metadata !{ i32 786449, metadata !3, i32 4, metadata !" PGCC 18.10-0", i1 0, metadata !"", i32 0, metadata !5, metadata !6, metadata !7, metadata !8, metadata !9, metadata !"" }
+!11 = metadata !{ metadata !32, metadata !61, metadata !35 }
+; !12 = !DISubroutineType(types: !11)
+!12 = metadata !{ i32 786453, i32 0, null, metadata !"", i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !11, i32 0, null, null }
+!13 = metadata !{  }
+; !14 = !DISubprogram(file: !3, scope: !4, name: "_Z22do_computation_207_gpuP2L0iid", linkageName: "_Z22do_computation_207_gpuP2L0iid", line: 207, type: !12, isDefinition: true, function: void (i32, i32, i32, i32, %struct.DT1_764*, double)* @_Z22do_computation_207_gpuP2L0iid, variables: !13, scopeLine: 207)
+!14 = metadata !{ i32 786478, metadata !3, metadata !4, metadata !"_Z22do_computation_207_gpuP2L0iid", metadata !"_Z22do_computation_207_gpuP2L0iid", metadata !"_Z22do_computation_207_gpuP2L0iid", i32 207, metadata !12, i1 0, i1 1, i32 0, i32 0, null, i32 0, i1 0, void (i32, i32, i32, i32, %struct.DT1_764*, double)* @_Z22do_computation_207_gpuP2L0iid, null, null, metadata !13, i32 207 }
+; !15 = !MDLocation(line: 207, column: 1, scope: !14)
+!15 = metadata !{ i32 207, i32 1, metadata !14, null }
+; !16 = !DILexicalBlock(file: !3, scope: !14, line: 207, column: 1)
+!16 = metadata !{ i32 786443, metadata !3, metadata !14, i32 207, i32 1, i32 0 }
+; !17 = !MDLocation(line: 207, column: 1, scope: !16)
+!17 = metadata !{ i32 207, i32 1, metadata !16, null }
+; !18 = !DILexicalBlock(file: !3, scope: !16, line: 209, column: 1)
+!18 = metadata !{ i32 786443, metadata !3, metadata !16, i32 209, i32 1, i32 1 }
+; !19 = !MDLocation(line: 209, column: 1, scope: !18)
+!19 = metadata !{ i32 209, i32 1, metadata !18, null }
+; !20 = !DILexicalBlock(file: !3, scope: !18, line: 210, column: 1)
+!20 = metadata !{ i32 786443, metadata !3, metadata !18, i32 210, i32 1, i32 2 }
+; !21 = !MDLocation(line: 210, column: 1, scope: !20)
+!21 = metadata !{ i32 210, i32 1, metadata !20, null }
+; !22 = !DILexicalBlock(file: !3, scope: !20, line: 212, column: 1)
+!22 = metadata !{ i32 786443, metadata !3, metadata !20, i32 212, i32 1, i32 3 }
+; !23 = !MDLocation(line: 212, column: 1, scope: !22)
+!23 = metadata !{ i32 212, i32 1, metadata !22, null }
+; !24 = !DILexicalBlock(file: !3, scope: !22, line: 213, column: 1)
+!24 = metadata !{ i32 786443, metadata !3, metadata !22, i32 213, i32 1, i32 4 }
+; !25 = !MDLocation(line: 213, column: 1, scope: !24)
+!25 = metadata !{ i32 213, i32 1, metadata !24, null }
+; !26 = !DILexicalBlock(file: !3, scope: !24, line: 215, column: 1)
+!26 = metadata !{ i32 786443, metadata !3, metadata !24, i32 215, i32 1, i32 5 }
+; !27 = !MDLocation(line: 215, column: 1, scope: !26)
+!27 = metadata !{ i32 215, i32 1, metadata !26, null }
+; !28 = !DILexicalBlock(file: !3, scope: !26, line: 216, column: 1)
+!28 = metadata !{ i32 786443, metadata !3, metadata !26, i32 216, i32 1, i32 6 }
+; !29 = !MDLocation(line: 216, column: 1, scope: !28)
+!29 = metadata !{ i32 216, i32 1, metadata !28, null }
+; !30 = !DILexicalBlock(file: !3, scope: !28, line: 218, column: 1)
+!30 = metadata !{ i32 786443, metadata !3, metadata !28, i32 218, i32 1, i32 7 }
+; !31 = !MDLocation(line: 218, column: 1, scope: !30)
+!31 = metadata !{ i32 218, i32 1, metadata !30, null }
+!32 = metadata !{ i32 786491 }
+!33 = metadata !{ metadata !37, metadata !39, metadata !59, metadata !60 }
+; !34 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L0", size: 256, align: 64, elements: !33)
+!34 = metadata !{ i32 786451, metadata !3, null, metadata !"L0", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !33, i32 0, null, null, null }
+; !35 = !DIBasicType(tag: DW_TAG_base_type, name: "double", size: 64, align: 64, encoding: DW_ATE_float)
+!35 = metadata !{ i32 786468, null, null, metadata !"double", i32 0, i64 64, i64 64, i64 0, i32 0, i32 4 }
+; !36 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !35)
+!36 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !35 }
+; !37 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !34, name: "A", size: 64, align: 64, baseType: !36)
+!37 = metadata !{ i32 786445, metadata !3, metadata !34, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !38 = !DIBasicType(tag: DW_TAG_base_type, name: "int", size: 32, align: 32, encoding: DW_ATE_signed)
+!38 = metadata !{ i32 786468, null, null, metadata !"int", i32 0, i64 32, i64 32, i64 0, i32 0, i32 5 }
+; !39 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !34, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!39 = metadata !{ i32 786445, metadata !3, metadata !34, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!40 = metadata !{ metadata !42, metadata !43, metadata !56, metadata !57 }
+; !41 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L1", size: 256, align: 64, elements: !40)
+!41 = metadata !{ i32 786451, metadata !3, null, metadata !"L1", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !40, i32 0, null, null, null }
+; !42 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !41, name: "A", size: 64, align: 64, baseType: !36)
+!42 = metadata !{ i32 786445, metadata !3, metadata !41, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !43 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !41, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!43 = metadata !{ i32 786445, metadata !3, metadata !41, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!44 = metadata !{ metadata !46, metadata !47, metadata !53, metadata !54 }
+; !45 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L2", size: 256, align: 64, elements: !44)
+!45 = metadata !{ i32 786451, metadata !3, null, metadata !"L2", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !44, i32 0, null, null, null }
+; !46 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !45, name: "A", size: 64, align: 64, baseType: !36)
+!46 = metadata !{ i32 786445, metadata !3, metadata !45, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !47 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !45, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!47 = metadata !{ i32 786445, metadata !3, metadata !45, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!48 = metadata !{ metadata !50, metadata !51 }
+; !49 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L3", size: 128, align: 64, elements: !48)
+!49 = metadata !{ i32 786451, metadata !3, null, metadata !"L3", i32 0, i64 128, i64 64, i32 0, i32 0, null, metadata !48, i32 0, null, null, null }
+; !50 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !49, name: "A", size: 64, align: 64, baseType: !36)
+!50 = metadata !{ i32 786445, metadata !3, metadata !49, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !51 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !49, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!51 = metadata !{ i32 786445, metadata !3, metadata !49, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+; !52 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !49)
+!52 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !49 }
+; !53 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !45, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !52)
+!53 = metadata !{ i32 786445, metadata !3, metadata !45, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !52 }
+; !54 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !45, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!54 = metadata !{ i32 786445, metadata !3, metadata !45, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !55 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !45)
+!55 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !45 }
+; !56 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !41, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !55)
+!56 = metadata !{ i32 786445, metadata !3, metadata !41, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !55 }
+; !57 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !41, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!57 = metadata !{ i32 786445, metadata !3, metadata !41, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !58 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !41)
+!58 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !41 }
+; !59 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !34, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !58)
+!59 = metadata !{ i32 786445, metadata !3, metadata !34, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !58 }
+; !60 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !34, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!60 = metadata !{ i32 786445, metadata !3, metadata !34, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !61 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !34)
+!61 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !34 }
+; !62 = !MDLocation(line: 219, column: 1, scope: !30)
+!62 = metadata !{ i32 219, i32 1, metadata !30, null }
+; !63 = !MDLocation(line: 222, column: 1, scope: !20)
+!63 = metadata !{ i32 222, i32 1, metadata !20, null }
+!64 = metadata !{ metadata !32, metadata !98, metadata !35 }
+; !65 = !DISubroutineType(types: !64)
+!65 = metadata !{ i32 786453, i32 0, null, metadata !"", i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !64, i32 0, null, null }
+!66 = metadata !{  }
+; !67 = !DISubprogram(file: !3, scope: !4, name: "_Z24do_computation_2_228_gpuP2L0iid", linkageName: "_Z24do_computation_2_228_gpuP2L0iid", line: 228, type: !65, isDefinition: true, function: void (i32, %struct.DT1_764*, double)* @_Z24do_computation_2_228_gpuP2L0iid, variables: !66, scopeLine: 228)
+!67 = metadata !{ i32 786478, metadata !3, metadata !4, metadata !"_Z24do_computation_2_228_gpuP2L0iid", metadata !"_Z24do_computation_2_228_gpuP2L0iid", metadata !"_Z24do_computation_2_228_gpuP2L0iid", i32 228, metadata !65, i1 0, i1 1, i32 0, i32 0, null, i32 0, i1 0, void (i32, %struct.DT1_764*, double)* @_Z24do_computation_2_228_gpuP2L0iid, null, null, metadata !66, i32 228 }
+; !68 = !MDLocation(line: 228, column: 1, scope: !67)
+!68 = metadata !{ i32 228, i32 1, metadata !67, null }
+; !69 = !DILexicalBlock(file: !3, scope: !67, line: 228, column: 1)
+!69 = metadata !{ i32 786443, metadata !3, metadata !67, i32 228, i32 1, i32 8 }
+; !70 = !MDLocation(line: 228, column: 1, scope: !69)
+!70 = metadata !{ i32 228, i32 1, metadata !69, null }
+; !71 = !DILexicalBlock(file: !3, scope: !69, line: 230, column: 1)
+!71 = metadata !{ i32 786443, metadata !3, metadata !69, i32 230, i32 1, i32 9 }
+; !72 = !MDLocation(line: 230, column: 1, scope: !71)
+!72 = metadata !{ i32 230, i32 1, metadata !71, null }
+!73 = metadata !{ metadata !75, metadata !76, metadata !96, metadata !97 }
+; !74 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L0", size: 256, align: 64, elements: !73)
+!74 = metadata !{ i32 786451, metadata !3, null, metadata !"L0", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !73, i32 0, null, null, null }
+; !75 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !74, name: "A", size: 64, align: 64, baseType: !36)
+!75 = metadata !{ i32 786445, metadata !3, metadata !74, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !76 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !74, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!76 = metadata !{ i32 786445, metadata !3, metadata !74, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!77 = metadata !{ metadata !79, metadata !80, metadata !93, metadata !94 }
+; !78 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L1", size: 256, align: 64, elements: !77)
+!78 = metadata !{ i32 786451, metadata !3, null, metadata !"L1", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !77, i32 0, null, null, null }
+; !79 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !78, name: "A", size: 64, align: 64, baseType: !36)
+!79 = metadata !{ i32 786445, metadata !3, metadata !78, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !80 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !78, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!80 = metadata !{ i32 786445, metadata !3, metadata !78, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!81 = metadata !{ metadata !83, metadata !84, metadata !90, metadata !91 }
+; !82 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L2", size: 256, align: 64, elements: !81)
+!82 = metadata !{ i32 786451, metadata !3, null, metadata !"L2", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !81, i32 0, null, null, null }
+; !83 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !82, name: "A", size: 64, align: 64, baseType: !36)
+!83 = metadata !{ i32 786445, metadata !3, metadata !82, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !84 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !82, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!84 = metadata !{ i32 786445, metadata !3, metadata !82, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!85 = metadata !{ metadata !87, metadata !88 }
+; !86 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L3", size: 128, align: 64, elements: !85)
+!86 = metadata !{ i32 786451, metadata !3, null, metadata !"L3", i32 0, i64 128, i64 64, i32 0, i32 0, null, metadata !85, i32 0, null, null, null }
+; !87 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !86, name: "A", size: 64, align: 64, baseType: !36)
+!87 = metadata !{ i32 786445, metadata !3, metadata !86, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !88 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !86, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!88 = metadata !{ i32 786445, metadata !3, metadata !86, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+; !89 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !86)
+!89 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !86 }
+; !90 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !82, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !89)
+!90 = metadata !{ i32 786445, metadata !3, metadata !82, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !89 }
+; !91 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !82, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!91 = metadata !{ i32 786445, metadata !3, metadata !82, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !92 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !82)
+!92 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !82 }
+; !93 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !78, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !92)
+!93 = metadata !{ i32 786445, metadata !3, metadata !78, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !92 }
+; !94 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !78, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!94 = metadata !{ i32 786445, metadata !3, metadata !78, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !95 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !78)
+!95 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !78 }
+; !96 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !74, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !95)
+!96 = metadata !{ i32 786445, metadata !3, metadata !74, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !95 }
+; !97 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !74, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!97 = metadata !{ i32 786445, metadata !3, metadata !74, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !98 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !74)
+!98 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !74 }
+; !99 = !MDLocation(line: 231, column: 1, scope: !71)
+!99 = metadata !{ i32 231, i32 1, metadata !71, null }
+!100 = metadata !{ metadata !32, metadata !138, metadata !35 }
+; !101 = !DISubroutineType(types: !100)
+!101 = metadata !{ i32 786453, i32 0, null, metadata !"", i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !100, i32 0, null, null }
+!102 = metadata !{  }
+; !103 = !DISubprogram(file: !3, scope: !4, name: "_Z24do_computation_2_231_gpuP2L0iid", linkageName: "_Z24do_computation_2_231_gpuP2L0iid", line: 231, type: !101, isDefinition: true, function: void (i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_231_gpuP2L0iid, variables: !102, scopeLine: 231)
+!103 = metadata !{ i32 786478, metadata !3, metadata !4, metadata !"_Z24do_computation_2_231_gpuP2L0iid", metadata !"_Z24do_computation_2_231_gpuP2L0iid", metadata !"_Z24do_computation_2_231_gpuP2L0iid", i32 231, metadata !101, i1 0, i1 1, i32 0, i32 0, null, i32 0, i1 0, void (i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_231_gpuP2L0iid, null, null, metadata !102, i32 231 }
+; !104 = !MDLocation(line: 231, column: 1, scope: !103)
+!104 = metadata !{ i32 231, i32 1, metadata !103, null }
+; !105 = !DILexicalBlock(file: !3, scope: !103, line: 231, column: 1)
+!105 = metadata !{ i32 786443, metadata !3, metadata !103, i32 231, i32 1, i32 10 }
+; !106 = !MDLocation(line: 231, column: 1, scope: !105)
+!106 = metadata !{ i32 231, i32 1, metadata !105, null }
+; !107 = !DILexicalBlock(file: !3, scope: !105, line: 234, column: 1)
+!107 = metadata !{ i32 786443, metadata !3, metadata !105, i32 234, i32 1, i32 11 }
+; !108 = !MDLocation(line: 234, column: 1, scope: !107)
+!108 = metadata !{ i32 234, i32 1, metadata !107, null }
+; !109 = !DILexicalBlock(file: !3, scope: !107, line: 234, column: 1)
+!109 = metadata !{ i32 786443, metadata !3, metadata !107, i32 234, i32 1, i32 12 }
+; !110 = !MDLocation(line: 234, column: 1, scope: !109)
+!110 = metadata !{ i32 234, i32 1, metadata !109, null }
+; !111 = !DILexicalBlock(file: !3, scope: !109, line: 235, column: 1)
+!111 = metadata !{ i32 786443, metadata !3, metadata !109, i32 235, i32 1, i32 13 }
+; !112 = !MDLocation(line: 235, column: 1, scope: !111)
+!112 = metadata !{ i32 235, i32 1, metadata !111, null }
+!113 = metadata !{ metadata !115, metadata !116, metadata !136, metadata !137 }
+; !114 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L0", size: 256, align: 64, elements: !113)
+!114 = metadata !{ i32 786451, metadata !3, null, metadata !"L0", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !113, i32 0, null, null, null }
+; !115 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !114, name: "A", size: 64, align: 64, baseType: !36)
+!115 = metadata !{ i32 786445, metadata !3, metadata !114, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !116 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !114, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!116 = metadata !{ i32 786445, metadata !3, metadata !114, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!117 = metadata !{ metadata !119, metadata !120, metadata !133, metadata !134 }
+; !118 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L1", size: 256, align: 64, elements: !117)
+!118 = metadata !{ i32 786451, metadata !3, null, metadata !"L1", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !117, i32 0, null, null, null }
+; !119 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !118, name: "A", size: 64, align: 64, baseType: !36)
+!119 = metadata !{ i32 786445, metadata !3, metadata !118, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !120 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !118, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!120 = metadata !{ i32 786445, metadata !3, metadata !118, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!121 = metadata !{ metadata !123, metadata !124, metadata !130, metadata !131 }
+; !122 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L2", size: 256, align: 64, elements: !121)
+!122 = metadata !{ i32 786451, metadata !3, null, metadata !"L2", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !121, i32 0, null, null, null }
+; !123 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !122, name: "A", size: 64, align: 64, baseType: !36)
+!123 = metadata !{ i32 786445, metadata !3, metadata !122, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !124 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !122, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!124 = metadata !{ i32 786445, metadata !3, metadata !122, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!125 = metadata !{ metadata !127, metadata !128 }
+; !126 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L3", size: 128, align: 64, elements: !125)
+!126 = metadata !{ i32 786451, metadata !3, null, metadata !"L3", i32 0, i64 128, i64 64, i32 0, i32 0, null, metadata !125, i32 0, null, null, null }
+; !127 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !126, name: "A", size: 64, align: 64, baseType: !36)
+!127 = metadata !{ i32 786445, metadata !3, metadata !126, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !128 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !126, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!128 = metadata !{ i32 786445, metadata !3, metadata !126, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+; !129 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !126)
+!129 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !126 }
+; !130 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !122, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !129)
+!130 = metadata !{ i32 786445, metadata !3, metadata !122, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !129 }
+; !131 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !122, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!131 = metadata !{ i32 786445, metadata !3, metadata !122, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !132 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !122)
+!132 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !122 }
+; !133 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !118, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !132)
+!133 = metadata !{ i32 786445, metadata !3, metadata !118, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !132 }
+; !134 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !118, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!134 = metadata !{ i32 786445, metadata !3, metadata !118, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !135 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !118)
+!135 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !118 }
+; !136 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !114, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !135)
+!136 = metadata !{ i32 786445, metadata !3, metadata !114, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !135 }
+; !137 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !114, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!137 = metadata !{ i32 786445, metadata !3, metadata !114, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !138 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !114)
+!138 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !114 }
+; !139 = !MDLocation(line: 236, column: 1, scope: !111)
+!139 = metadata !{ i32 236, i32 1, metadata !111, null }
+!140 = metadata !{ metadata !32, metadata !182, metadata !35 }
+; !141 = !DISubroutineType(types: !140)
+!141 = metadata !{ i32 786453, i32 0, null, metadata !"", i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !140, i32 0, null, null }
+!142 = metadata !{  }
+; !143 = !DISubprogram(file: !3, scope: !4, name: "_Z24do_computation_2_236_gpuP2L0iid", linkageName: "_Z24do_computation_2_236_gpuP2L0iid", line: 236, type: !141, isDefinition: true, function: void (i32, i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_236_gpuP2L0iid, variables: !142, scopeLine: 236)
+!143 = metadata !{ i32 786478, metadata !3, metadata !4, metadata !"_Z24do_computation_2_236_gpuP2L0iid", metadata !"_Z24do_computation_2_236_gpuP2L0iid", metadata !"_Z24do_computation_2_236_gpuP2L0iid", i32 236, metadata !141, i1 0, i1 1, i32 0, i32 0, null, i32 0, i1 0, void (i32, i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_236_gpuP2L0iid, null, null, metadata !142, i32 236 }
+; !144 = !MDLocation(line: 236, column: 1, scope: !143)
+!144 = metadata !{ i32 236, i32 1, metadata !143, null }
+; !145 = !DILexicalBlock(file: !3, scope: !143, line: 236, column: 1)
+!145 = metadata !{ i32 786443, metadata !3, metadata !143, i32 236, i32 1, i32 14 }
+; !146 = !MDLocation(line: 236, column: 1, scope: !145)
+!146 = metadata !{ i32 236, i32 1, metadata !145, null }
+; !147 = !DILexicalBlock(file: !3, scope: !145, line: 239, column: 1)
+!147 = metadata !{ i32 786443, metadata !3, metadata !145, i32 239, i32 1, i32 15 }
+; !148 = !MDLocation(line: 239, column: 1, scope: !147)
+!148 = metadata !{ i32 239, i32 1, metadata !147, null }
+; !149 = !DILexicalBlock(file: !3, scope: !147, line: 239, column: 1)
+!149 = metadata !{ i32 786443, metadata !3, metadata !147, i32 239, i32 1, i32 16 }
+; !150 = !MDLocation(line: 239, column: 1, scope: !149)
+!150 = metadata !{ i32 239, i32 1, metadata !149, null }
+; !151 = !DILexicalBlock(file: !3, scope: !149, line: 240, column: 1)
+!151 = metadata !{ i32 786443, metadata !3, metadata !149, i32 240, i32 1, i32 17 }
+; !152 = !MDLocation(line: 240, column: 1, scope: !151)
+!152 = metadata !{ i32 240, i32 1, metadata !151, null }
+; !153 = !DILexicalBlock(file: !3, scope: !151, line: 240, column: 1)
+!153 = metadata !{ i32 786443, metadata !3, metadata !151, i32 240, i32 1, i32 18 }
+; !154 = !MDLocation(line: 240, column: 1, scope: !153)
+!154 = metadata !{ i32 240, i32 1, metadata !153, null }
+; !155 = !DILexicalBlock(file: !3, scope: !153, line: 241, column: 1)
+!155 = metadata !{ i32 786443, metadata !3, metadata !153, i32 241, i32 1, i32 19 }
+; !156 = !MDLocation(line: 241, column: 1, scope: !155)
+!156 = metadata !{ i32 241, i32 1, metadata !155, null }
+!157 = metadata !{ metadata !159, metadata !160, metadata !180, metadata !181 }
+; !158 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L0", size: 256, align: 64, elements: !157)
+!158 = metadata !{ i32 786451, metadata !3, null, metadata !"L0", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !157, i32 0, null, null, null }
+; !159 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !158, name: "A", size: 64, align: 64, baseType: !36)
+!159 = metadata !{ i32 786445, metadata !3, metadata !158, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !160 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !158, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!160 = metadata !{ i32 786445, metadata !3, metadata !158, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!161 = metadata !{ metadata !163, metadata !164, metadata !177, metadata !178 }
+; !162 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L1", size: 256, align: 64, elements: !161)
+!162 = metadata !{ i32 786451, metadata !3, null, metadata !"L1", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !161, i32 0, null, null, null }
+; !163 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !162, name: "A", size: 64, align: 64, baseType: !36)
+!163 = metadata !{ i32 786445, metadata !3, metadata !162, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !164 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !162, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!164 = metadata !{ i32 786445, metadata !3, metadata !162, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!165 = metadata !{ metadata !167, metadata !168, metadata !174, metadata !175 }
+; !166 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L2", size: 256, align: 64, elements: !165)
+!166 = metadata !{ i32 786451, metadata !3, null, metadata !"L2", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !165, i32 0, null, null, null }
+; !167 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !166, name: "A", size: 64, align: 64, baseType: !36)
+!167 = metadata !{ i32 786445, metadata !3, metadata !166, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !168 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !166, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!168 = metadata !{ i32 786445, metadata !3, metadata !166, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!169 = metadata !{ metadata !171, metadata !172 }
+; !170 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L3", size: 128, align: 64, elements: !169)
+!170 = metadata !{ i32 786451, metadata !3, null, metadata !"L3", i32 0, i64 128, i64 64, i32 0, i32 0, null, metadata !169, i32 0, null, null, null }
+; !171 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !170, name: "A", size: 64, align: 64, baseType: !36)
+!171 = metadata !{ i32 786445, metadata !3, metadata !170, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !172 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !170, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!172 = metadata !{ i32 786445, metadata !3, metadata !170, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+; !173 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !170)
+!173 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !170 }
+; !174 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !166, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !173)
+!174 = metadata !{ i32 786445, metadata !3, metadata !166, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !173 }
+; !175 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !166, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!175 = metadata !{ i32 786445, metadata !3, metadata !166, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !176 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !166)
+!176 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !166 }
+; !177 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !162, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !176)
+!177 = metadata !{ i32 786445, metadata !3, metadata !162, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !176 }
+; !178 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !162, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!178 = metadata !{ i32 786445, metadata !3, metadata !162, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !179 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !162)
+!179 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !162 }
+; !180 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !158, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !179)
+!180 = metadata !{ i32 786445, metadata !3, metadata !158, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !179 }
+; !181 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !158, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!181 = metadata !{ i32 786445, metadata !3, metadata !158, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !182 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !158)
+!182 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !158 }
+; !183 = !MDLocation(line: 242, column: 1, scope: !155)
+!183 = metadata !{ i32 242, i32 1, metadata !155, null }
+!184 = metadata !{ metadata !32, metadata !230, metadata !35 }
+; !185 = !DISubroutineType(types: !184)
+!185 = metadata !{ i32 786453, i32 0, null, metadata !"", i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !184, i32 0, null, null }
+!186 = metadata !{  }
+; !187 = !DISubprogram(file: !3, scope: !4, name: "_Z24do_computation_2_242_gpuP2L0iid", linkageName: "_Z24do_computation_2_242_gpuP2L0iid", line: 242, type: !185, isDefinition: true, function: void (i32, i32, i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_242_gpuP2L0iid, variables: !186, scopeLine: 242)
+!187 = metadata !{ i32 786478, metadata !3, metadata !4, metadata !"_Z24do_computation_2_242_gpuP2L0iid", metadata !"_Z24do_computation_2_242_gpuP2L0iid", metadata !"_Z24do_computation_2_242_gpuP2L0iid", i32 242, metadata !185, i1 0, i1 1, i32 0, i32 0, null, i32 0, i1 0, void (i32, i32, i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_242_gpuP2L0iid, null, null, metadata !186, i32 242 }
+; !188 = !MDLocation(line: 242, column: 1, scope: !187)
+!188 = metadata !{ i32 242, i32 1, metadata !187, null }
+; !189 = !DILexicalBlock(file: !3, scope: !187, line: 242, column: 1)
+!189 = metadata !{ i32 786443, metadata !3, metadata !187, i32 242, i32 1, i32 20 }
+; !190 = !MDLocation(line: 242, column: 1, scope: !189)
+!190 = metadata !{ i32 242, i32 1, metadata !189, null }
+; !191 = !DILexicalBlock(file: !3, scope: !189, line: 245, column: 1)
+!191 = metadata !{ i32 786443, metadata !3, metadata !189, i32 245, i32 1, i32 21 }
+; !192 = !MDLocation(line: 245, column: 1, scope: !191)
+!192 = metadata !{ i32 245, i32 1, metadata !191, null }
+; !193 = !DILexicalBlock(file: !3, scope: !191, line: 245, column: 1)
+!193 = metadata !{ i32 786443, metadata !3, metadata !191, i32 245, i32 1, i32 22 }
+; !194 = !MDLocation(line: 245, column: 1, scope: !193)
+!194 = metadata !{ i32 245, i32 1, metadata !193, null }
+; !195 = !DILexicalBlock(file: !3, scope: !193, line: 246, column: 1)
+!195 = metadata !{ i32 786443, metadata !3, metadata !193, i32 246, i32 1, i32 23 }
+; !196 = !MDLocation(line: 246, column: 1, scope: !195)
+!196 = metadata !{ i32 246, i32 1, metadata !195, null }
+; !197 = !DILexicalBlock(file: !3, scope: !195, line: 246, column: 1)
+!197 = metadata !{ i32 786443, metadata !3, metadata !195, i32 246, i32 1, i32 24 }
+; !198 = !MDLocation(line: 246, column: 1, scope: !197)
+!198 = metadata !{ i32 246, i32 1, metadata !197, null }
+; !199 = !DILexicalBlock(file: !3, scope: !197, line: 247, column: 1)
+!199 = metadata !{ i32 786443, metadata !3, metadata !197, i32 247, i32 1, i32 25 }
+; !200 = !MDLocation(line: 247, column: 1, scope: !199)
+!200 = metadata !{ i32 247, i32 1, metadata !199, null }
+; !201 = !DILexicalBlock(file: !3, scope: !199, line: 247, column: 1)
+!201 = metadata !{ i32 786443, metadata !3, metadata !199, i32 247, i32 1, i32 26 }
+; !202 = !MDLocation(line: 247, column: 1, scope: !201)
+!202 = metadata !{ i32 247, i32 1, metadata !201, null }
+; !203 = !DILexicalBlock(file: !3, scope: !201, line: 248, column: 1)
+!203 = metadata !{ i32 786443, metadata !3, metadata !201, i32 248, i32 1, i32 27 }
+; !204 = !MDLocation(line: 248, column: 1, scope: !203)
+!204 = metadata !{ i32 248, i32 1, metadata !203, null }
+!205 = metadata !{ metadata !207, metadata !208, metadata !228, metadata !229 }
+; !206 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L0", size: 256, align: 64, elements: !205)
+!206 = metadata !{ i32 786451, metadata !3, null, metadata !"L0", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !205, i32 0, null, null, null }
+; !207 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !206, name: "A", size: 64, align: 64, baseType: !36)
+!207 = metadata !{ i32 786445, metadata !3, metadata !206, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !208 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !206, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!208 = metadata !{ i32 786445, metadata !3, metadata !206, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!209 = metadata !{ metadata !211, metadata !212, metadata !225, metadata !226 }
+; !210 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L1", size: 256, align: 64, elements: !209)
+!210 = metadata !{ i32 786451, metadata !3, null, metadata !"L1", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !209, i32 0, null, null, null }
+; !211 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !210, name: "A", size: 64, align: 64, baseType: !36)
+!211 = metadata !{ i32 786445, metadata !3, metadata !210, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !212 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !210, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!212 = metadata !{ i32 786445, metadata !3, metadata !210, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!213 = metadata !{ metadata !215, metadata !216, metadata !222, metadata !223 }
+; !214 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L2", size: 256, align: 64, elements: !213)
+!214 = metadata !{ i32 786451, metadata !3, null, metadata !"L2", i32 0, i64 256, i64 64, i32 0, i32 0, null, metadata !213, i32 0, null, null, null }
+; !215 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !214, name: "A", size: 64, align: 64, baseType: !36)
+!215 = metadata !{ i32 786445, metadata !3, metadata !214, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !216 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !214, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!216 = metadata !{ i32 786445, metadata !3, metadata !214, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+!217 = metadata !{ metadata !219, metadata !220 }
+; !218 = !DICompositeType(tag: DW_TAG_structure_type, file: !3, name: "L3", size: 128, align: 64, elements: !217)
+!218 = metadata !{ i32 786451, metadata !3, null, metadata !"L3", i32 0, i64 128, i64 64, i32 0, i32 0, null, metadata !217, i32 0, null, null, null }
+; !219 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !218, name: "A", size: 64, align: 64, baseType: !36)
+!219 = metadata !{ i32 786445, metadata !3, metadata !218, metadata !"A", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !36 }
+; !220 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !218, name: "nA", size: 32, align: 32, offset: 64, baseType: !38)
+!220 = metadata !{ i32 786445, metadata !3, metadata !218, metadata !"nA", i32 0, i64 32, i64 32, i64 64, i32 0, metadata !38 }
+; !221 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !218)
+!221 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !218 }
+; !222 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !214, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !221)
+!222 = metadata !{ i32 786445, metadata !3, metadata !214, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !221 }
+; !223 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !214, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!223 = metadata !{ i32 786445, metadata !3, metadata !214, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !224 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !214)
+!224 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !214 }
+; !225 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !210, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !224)
+!225 = metadata !{ i32 786445, metadata !3, metadata !210, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !224 }
+; !226 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !210, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!226 = metadata !{ i32 786445, metadata !3, metadata !210, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !227 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !210)
+!227 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !210 }
+; !228 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !206, name: "Lnext", size: 64, align: 64, offset: 128, baseType: !227)
+!228 = metadata !{ i32 786445, metadata !3, metadata !206, metadata !"Lnext", i32 0, i64 64, i64 64, i64 128, i32 0, metadata !227 }
+; !229 = !DIDerivedType(tag: DW_TAG_member, file: !3, scope: !206, name: "nLnext", size: 32, align: 32, offset: 192, baseType: !38)
+!229 = metadata !{ i32 786445, metadata !3, metadata !206, metadata !"nLnext", i32 0, i64 32, i64 32, i64 192, i32 0, metadata !38 }
+; !230 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !206)
+!230 = metadata !{ i32 786447, null, null, metadata !"", i32 0, i64 64, i64 64, i64 0, i32 0, metadata !206 }
+; !231 = !MDLocation(line: 249, column: 1, scope: !203)
+!231 = metadata !{ i32 249, i32 1, metadata !203, null }
+!232 = metadata !{ void (i32, i32, i32, i32, %struct.DT1_764*, double)* @_Z22do_computation_207_gpuP2L0iid, metadata !"kernel", i32 1 }
+!233 = metadata !{ void (i32, i32, i32, i32, %struct.DT1_764*, double)* @_Z22do_computation_207_gpuP2L0iid, metadata !"maxntidx", i32 128, metadata !"maxntidy", i32 1, metadata !"maxntidz", i32 1 }
+!234 = metadata !{ void (i32, %struct.DT1_764*, double)* @_Z24do_computation_2_228_gpuP2L0iid, metadata !"kernel", i32 1 }
+!235 = metadata !{ void (i32, %struct.DT1_764*, double)* @_Z24do_computation_2_228_gpuP2L0iid, metadata !"maxntidx", i32 128, metadata !"maxntidy", i32 1, metadata !"maxntidz", i32 1 }
+!236 = metadata !{ void (i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_231_gpuP2L0iid, metadata !"kernel", i32 1 }
+!237 = metadata !{ void (i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_231_gpuP2L0iid, metadata !"maxntidx", i32 128, metadata !"maxntidy", i32 1, metadata !"maxntidz", i32 1 }
+!238 = metadata !{ void (i32, i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_236_gpuP2L0iid, metadata !"kernel", i32 1 }
+!239 = metadata !{ void (i32, i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_236_gpuP2L0iid, metadata !"maxntidx", i32 128, metadata !"maxntidy", i32 1, metadata !"maxntidz", i32 1 }
+!240 = metadata !{ void (i32, i32, i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_242_gpuP2L0iid, metadata !"kernel", i32 1 }
+!241 = metadata !{ void (i32, i32, i32, i32, %struct.DT1_764*, double)* @_Z24do_computation_2_242_gpuP2L0iid, metadata !"maxntidx", i32 128, metadata !"maxntidy", i32 1, metadata !"maxntidz", i32 1 }
+!242 = metadata !{ i32 1, i32 2, i32 2, i32 0 }
